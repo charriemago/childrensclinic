@@ -18,6 +18,7 @@
 	<script src="<?=URL?>public/js/jquery.min.js"></script>
 	<script src="<?=URL?>public/js/popper.min.js"></script>
 	<script src="<?=URL?>public/js/bootstrap.min.js"></script>
+	<script src="<?=URL?>public/js/global.js"></script>
 	<script src="<?= URL;?>public/dataTables/datatables.min.js"></script>
 	<script>
 		const URL = '<?=URL?>';

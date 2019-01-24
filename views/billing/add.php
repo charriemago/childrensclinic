@@ -1,5 +1,6 @@
 <?php 
     $vaccines = $this->vaccines;
+    $patient = $this->patientList;
 ?>
 <div class="container-fluid">
     <div class="row">
@@ -9,19 +10,22 @@
                     <h5 class="float-left"> Add Bill</h5>
                 </div>
                 <div class="float-right">
-                    <button class="btn btn-standard-success btn-sm" form="addPatientForm"><i class="pe-7s-paper-plane pe-lg"></i> <span>Submit</span></button>
+                    <button class="btn btn-standard-success btn-sm" form="addForm"><i class="pe-7s-paper-plane pe-lg"></i> <span>Submit</span></button>
                 </div>
             </div><hr>
-            <form class="form-standard" id="addPatientForm">
+            <form class="form-standard" id="addForm">
                 <div class="card card-standard">
                     <div class="card-body">
                         <h6 class="mb-4" style="font-weight: 700">Patient</h6>
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label">Patient Name</label>
                             <div class="col-sm-10">
-                                <select class="form-control" name="gender">
-                                    <option>Jan Lawrence Tolentino</option>
-                                    <option>Rejie Salvador</option>
+                                <select class="form-control" name="patient">
+                                    <?php
+                                        foreach($patient as $each){
+                                    ?>
+                                        <option value="<?= $each['id']?>"><?= $each['patient_name']?></option>
+                                    <?php } ?>
                                 </select>
                             </div>
                         </div>
@@ -39,8 +43,9 @@
                                     <tr>
                                         <td class="text-standard">
                                             <strong><?=$vaccine['vaccine']?></strong>
-                                        </td>      
-                                        <td><input type="text" class="form-control"></td>
+                                        </td>
+                                        <input type="hidden" class="form-control" name="vaccine[]" value="<?=$vaccine['id']?>">      
+                                        <td><input type="text" class="form-control" name="bill[]"></td>
                                     </tr>
                                 <?php endforeach;?> 
                             </tbody>
@@ -50,7 +55,7 @@
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label">Doctor's Fee</label>
                             <div class="col-sm-10">
-                                <input class="form-control" type="text">
+                                <input class="form-control" type="text" name="doc_fee">
                             </div>
                         </div>
                     </div>
@@ -59,4 +64,4 @@
         </div>
     </div>
 </div>
-<script src="<?=URL?>public/js/patient.js"></script>
+<script src="<?=URL?>public/js/billing.js"></script>

@@ -12,12 +12,17 @@ class Billing extends Controller
 	
 	public function index()
 	{
+		$this->view->bills = $this->model->bills();
 		$this->view->render('views/billing/list.php');
 	}
 	public function add()
 	{
-        $this->view->vaccines = Vaccine_model::all();
+		$this->view->vaccines = Vaccine_model::all();
+		$this->view->patientList = $this->model->patientList();
 		$this->view->render('views/billing/add.php');
+	}
+	public function saveBill(){
+		$this->model->saveBill();
 	}
 
 }

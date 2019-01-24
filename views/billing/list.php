@@ -1,3 +1,6 @@
+<?php
+    $bills = $this->bills;
+?>
 <div class="search-box mb-3">
     <div class="input-group">
         <div class="input-group-prepend">
@@ -35,11 +38,14 @@
                                 </tr>   
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>January 2, 2019</td>      
-                                    <td>Jan Lawrence Tolentino</td> 
-                                    <td>1239.00</td> 
-                                </tr>
+                                <?php foreach($bills as $each){
+                                ?>
+                                    <tr>
+                                        <td><?= date('F d, Y',strtotime($each['date_created']))?></td>      
+                                        <td><?= $each['patient_name']?></td> 
+                                        <td>P<?= $each['total_fee']?></td> 
+                                    </tr>
+                                <?php } ?>
                             </tbody>
                         </table>
                     </div>

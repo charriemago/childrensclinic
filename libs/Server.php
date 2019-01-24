@@ -10,4 +10,4 @@
 	define('DATABASE_HOST', 'dt0017');
 	define('DATABASE_USER', 'root');
 	define('DATABASE_PASS', '');
-	define('DATABASE_NAME', '');
+	define('DATABASE_NAME', 'db_clinic');

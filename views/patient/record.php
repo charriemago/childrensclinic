@@ -1,3 +1,9 @@
+<?php
+    $patient = $this->patient;
+    // echo '<pre>';
+    // print_r($patient);
+    // echo '</pre>';
+?>
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12 mt-4">
@@ -16,52 +22,52 @@
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label">Patient Name</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" value="Jan Lawrence Dela Cruz Tolentino">
+                                <input type="text" class="form-control" value="<?=$patient['patient_name']?>">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="inputPassword" class="col-sm-2 col-form-label">Address</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control" value="<?=$patient['address']?>">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="inputPassword" class="col-sm-2 col-form-label">Gender</label>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control" value="<?=$patient['gender']?>">
                             </div>
                             <label for="inputPassword" class="col-sm-1 col-form-label">Birthday</label>
                             <div class="col-sm-5">
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control" value="<?=$patient['birthday']?>">
                             </div>
                         </div> 
                         <hr>
                         <div class="form-group row">
                             <label for="inputPassword" class="col-sm-2 col-form-label">Father's Name</label>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control" value="<?=$patient['parent']['father_name']?>">
                             </div>
                             <label for="inputPassword" class="col-sm-1 col-form-label">Occupation</label>
                             <div class="col-sm-2">
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control" value="<?=$patient['parent']['father_occupation']?>">
                             </div>
                             <label for="inputPassword" class="col-sm-1 col-form-label">Contact No.</label>
                             <div class="col-sm-2">
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control" value="<?=$patient['parent']['father_telephone']?>">
                             </div>
                         </div> 
                         <div class="form-group row">
                             <label for="inputPassword" class="col-sm-2 col-form-label">Mother's Name</label>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control" value="<?=$patient['parent']['mother_name']?>">
                             </div>
                             <label for="inputPassword" class="col-sm-1 col-form-label">Occupation</label>
                             <div class="col-sm-2">
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control" value="<?=$patient['parent']['mother_occupation']?>">
                             </div>
                             <label for="inputPassword" class="col-sm-1 col-form-label">Contact No.</label>
                             <div class="col-sm-2">
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control" value="<?=$patient['parent']['mother_telephone']?>">
                             </div>
                         </div> 
                         <h6 class="mb-4 mt-5" style="font-weight: 700">Birth History</h6>

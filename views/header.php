@@ -19,6 +19,9 @@
 	<script src="<?=URL?>public/js/popper.min.js"></script>
 	<script src="<?=URL?>public/js/bootstrap.min.js"></script>
 	<script src="<?= URL;?>public/dataTables/datatables.min.js"></script>
+	<script>
+		const URL = '<?=URL?>';
+	</script>
 </head>
 
 <body>
@@ -46,7 +49,7 @@
 			</ul>
 			<ul class="navbar-nav ml-auto">
 				<li class="nav-item">
-					<a class="nav-link text-standard" href="#">Logout</a>
+					<a class="nav-link text-standard" href="<?=URL?>user/logout">Logout</a>
 				</li>
 			</ul>
 		</div>

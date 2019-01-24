@@ -16,19 +16,23 @@
 		<script src="<?=URL?>public/js/jquery.min.js"></script>
 		<script src="<?=URL?>public/js/popper.min.js"></script>
 		<script src="<?=URL?>public/js/bootstrap.min.js"></script>
+		<script>
+			const URL = "<?=URL?>";
+		</script>
 		<script src="<?=URL?>public/js/login.js"></script>
+
 	</head>
 	<body>
 		<div class="container">
 			<div class="row">
 				<div class="col-md-4 col-sm-5 col-lg-4 mx-auto">
-					<form class="form-standard mt-100">
+					<form class="form-standard mt-100" id="loginForm">
 						<div class="form-group mb-80">
 							<h1 class="text-center text-light" style="font-weight: bolder;">Children's Clinic</h1>
 						</div>
 						<div class="form-group">
 							<div class="input-group">
-								<input class="form-control form-control-standard font-weight-light" type="text" placeholder="Username">
+								<input class="form-control form-control-standard font-weight-light" type="text" placeholder="Username" name="username" required>
 								<div class="input-group-prepend">
 									<span class="input-group-text"><i class="pe-7s-user pe-lg"></i></span>
 								</div>
@@ -36,7 +40,7 @@
 						</div>
 						<div class="form-group mt-4">
 							<div class="input-group">
-								<input class="form-control form-control-standard  font-weight-light" type="password" placeholder="Password">
+								<input class="form-control form-control-standard  font-weight-light" type="password" name="password" placeholder="Password" required>
 								<div class="input-group-prepend">
 									<span class="input-group-text"><i class="pe-7s-key pe-lg" style="padding-right: 5px;"></i></span>
 								</div>
@@ -52,6 +56,5 @@
 				</div>
 			</div>
 		</div>
-		
 	</body>
 </html>

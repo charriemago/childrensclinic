@@ -38,7 +38,7 @@
 					<a class="nav-link text-standard" href="<?= URL?>patient">Patient Record</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link text-standard" href="#">Follow up Visit</a>
+					<a class="nav-link text-standard" href="<?= URL?>followup">Follow up Visit</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link text-standard" href="#">Billing</a>

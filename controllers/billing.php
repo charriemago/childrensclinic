@@ -1,5 +1,7 @@
 <?php
 
+include 'models/vaccine_model.php';
+
 class Billing extends Controller
 {
 
@@ -14,6 +16,7 @@ class Billing extends Controller
 	}
 	public function add()
 	{
+        $this->view->vaccines = Vaccine_model::all();
 		$this->view->render('views/billing/add.php');
 	}
 

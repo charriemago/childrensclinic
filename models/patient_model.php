@@ -7,7 +7,8 @@ class Patient_model extends Model
 
 	function __construct()
 	{
-		parent::__construct();
+        parent::__construct();
+        $this->user = Session::getSession('user');   
     }
 
     public function all() {
@@ -18,6 +19,7 @@ class Patient_model extends Model
     public function info($id) {
         $data = DB::load(DATABASE_NAME, $this->table, $id);
         $data['parent'] = $this->parent($id);
+        $data['birthHistory'] = $this->birthHistory($id);
         return $data;
     }
 
@@ -25,17 +27,18 @@ class Patient_model extends Model
         return Parent_model::findByPatientId($patient_id);
     }
 
+    public function birthHistory($patient_id) {
+        $data = Db::selectByColumn(DATABASE_NAME, 'tbl_birth_history', array('patient_id' => $patient_id));
+        return !empty($data) ? $data[0] : [];
+    }
+
     public function insert() {
-        // print_r($_POST);
-        // exit;
-        // $this->insertImmunizationRecord(); exit;
         $data = [
             'patient_name' => $_POST['patient_name'],
             'address' => $_POST['address'],
             'gender' => $_POST['gender'],
             'birthday' => $_POST['birthday'],
-            'created_by' => 1,
-            'modified_by' => 1
+            'created_by' => $this->user['id']
         ];
         $patient_id = Db::insert(DATABASE_NAME, $this->table, $data);
         if($patient_id > 0) {
@@ -63,8 +66,7 @@ class Patient_model extends Model
             'mother_name' => $_POST['mother_name'],
             'mother_occupation' => $_POST['mother_occupation'],
             'mother_telephone' => $_POST['mother_telephone'],
-            'created_by' => 1,
-            'modified_by' => 1,
+            'created_by' => $this->user['id']
         );
         $id = Db::insert(DATABASE_NAME, 'tbl_parent', $data);
         return $id;
@@ -84,8 +86,7 @@ class Patient_model extends Model
             'head_circumference' => $_POST['head_circumference'],
             'chest_circumference' => $_POST['chest_circumference'],
             'abdominal_circumference' => $_POST['abdominal_circumference'],
-            'created_by' => 1,
-            'modified_by' => 1,
+            'created_by' => $this->user['id']
         );
         $id = Db::insert(DATABASE_NAME, 'tbl_birth_history', $data);
         return $id;
@@ -104,8 +105,7 @@ class Patient_model extends Model
                 'Booster_2' => isset($_POST['Booster_2'][$vaccine['id']]) ? 1 : 0,
                 'Booster_3' => isset($_POST['Booster_3'][$vaccine['id']]) ? 1 : 0,
                 'reaction' => $_POST['reaction'][$vaccine['id']],
-                'created_by' => 1,
-                'modified_by' => 1,
+                'created_by' => $this->user['id']
             );
             $id = Db::insert(DATABASE_NAME, 'tbl_immunization_record', $data);
         }

@@ -1,18 +1,16 @@
 <?php
     $patient = $this->patient;
-    // echo '<pre>';
-    // print_r($patient);
-    // echo '</pre>';
+    $vaccines = $this->vaccines;
 ?>
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12 mt-4">
-            <div class="box-title clearfix">
+            <div class="clearfix">
                 <div class="float-left">
-                    <h5 class="float-left"> Patient Information</h5>
+                    <h5 class="float-left"> Patient Information <a href="#" class="update-trigger"><i class="ti-pencil"></i></a></h5>
                 </div>
                 <div class="float-right">
-                   
+                    <button class="btn btn-standard-success btn-sm btn-update d-none"><i class="ti-pencil"></i> <span>Update</span></button>
                 </div>
             </div><hr>
             <form class="form-standard">
@@ -22,103 +20,103 @@
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label">Patient Name</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" value="<?=$patient['patient_name']?>">
+                                <input type="text" disabled class="form-control" name="patient_name" value="<?=$patient['patient_name']?>">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="inputPassword" class="col-sm-2 col-form-label">Address</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" value="<?=$patient['address']?>">
+                                <input type="text" disabled class="form-control" name="address" value="<?=$patient['address']?>">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="inputPassword" class="col-sm-2 col-form-label">Gender</label>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control" value="<?=$patient['gender']?>">
+                                <input type="text" disabled class="form-control" value="<?=$patient['gender']?>" name="gender">
                             </div>
                             <label for="inputPassword" class="col-sm-1 col-form-label">Birthday</label>
                             <div class="col-sm-5">
-                                <input type="text" class="form-control" value="<?=$patient['birthday']?>">
+                                <input type="text" disabled class="form-control" value="<?=$patient['birthday']?>" name="birthday">
                             </div>
                         </div> 
                         <hr>
                         <div class="form-group row">
                             <label for="inputPassword" class="col-sm-2 col-form-label">Father's Name</label>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control" value="<?=$patient['parent']['father_name']?>">
+                                <input type="text" disabled class="form-control" name="father_name" value="<?=$patient['parent']['father_name']?>">
                             </div>
                             <label for="inputPassword" class="col-sm-1 col-form-label">Occupation</label>
                             <div class="col-sm-2">
-                                <input type="text" class="form-control" value="<?=$patient['parent']['father_occupation']?>">
+                                <input type="text" disabled class="form-control" name="father_occupation" value="<?=$patient['parent']['father_occupation']?>">
                             </div>
                             <label for="inputPassword" class="col-sm-1 col-form-label">Contact No.</label>
                             <div class="col-sm-2">
-                                <input type="text" class="form-control" value="<?=$patient['parent']['father_telephone']?>">
+                                <input type="text" disabled class="form-control" name="father_telephone" value="<?=$patient['parent']['father_telephone']?>">
                             </div>
                         </div> 
                         <div class="form-group row">
                             <label for="inputPassword" class="col-sm-2 col-form-label">Mother's Name</label>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control" value="<?=$patient['parent']['mother_name']?>">
+                                <input type="text" disabled class="form-control" name="mother_name" value="<?=$patient['parent']['mother_name']?>">
                             </div>
                             <label for="inputPassword" class="col-sm-1 col-form-label">Occupation</label>
                             <div class="col-sm-2">
-                                <input type="text" class="form-control" value="<?=$patient['parent']['mother_occupation']?>">
+                                <input type="text" disabled class="form-control" name="mother_occupation" value="<?=$patient['parent']['mother_occupation']?>">
                             </div>
                             <label for="inputPassword" class="col-sm-1 col-form-label">Contact No.</label>
                             <div class="col-sm-2">
-                                <input type="text" class="form-control" value="<?=$patient['parent']['mother_telephone']?>">
+                                <input type="text" disabled class="form-control" name="mother_telephone" value="<?=$patient['parent']['mother_telephone']?>">
                             </div>
                         </div> 
                         <h6 class="mb-4 mt-5" style="font-weight: 700">Birth History</h6>
                         <div class="form-group row">
                             <label for="inputPassword" class="col-sm-1 col-form-label">Term</label>
                             <div class="col-sm-1">
-                                <input type="text" class="form-control">
+                                <input type="text" disabled class="form-control" name="term" value="<?=$patient['birthHistory']['term']?>">
                             </div>
                             <label for="inputPassword" class="col-sm-1 col-form-label">No. Of Months</label>
                             <div class="col-sm-1">
-                                <input type="text" class="form-control">
+                                <input type="text" disabled class="form-control" name="no_of_mos" value="<?=$patient['birthHistory']['no_of_mos']?>">
                             </div>
                             <label for="inputPassword" class="col-sm-1 col-form-label">Weeks</label>
                             <div class="col-sm-1">
-                                <input type="text" class="form-control">
+                                <input type="text" disabled class="form-control" name="weeks" value="<?=$patient['birthHistory']['no_of_mos']?>">
                             </div>
                             <label for="inputPassword" class="col-sm-1 col-form-label">Days</label>
                             <div class="col-sm-1">
-                                <input type="text" class="form-control">
+                                <input type="text" disabled class="form-control" name="days" value="<?=$patient['birthHistory']['days']?>">
                             </div>
                             <label for="inputPassword" class="col-sm-1 col-form-label">Head Circumference</label>
                             <div class="col-sm-3">
-                                <input type="text" class="form-control">
+                                <input type="text" disabled class="form-control" name="head_circumference" value="<?=$patient['birthHistory']['head_circumference']?>">
                             </div>
                         </div> 
                         <div class="form-group row">
                             <label for="inputPassword" class="col-sm-1 col-form-label">Type of Delivery</label>
                             <div class="col-sm-5">
-                                <input type="text" class="form-control">
+                                <input type="text" disabled class="form-control" name="type_of_delivery" value="<?=$patient['birthHistory']['type_of_delivery']?>">
                             </div>
                             <label for="inputPassword" class="col-sm-1 col-form-label">Chest Circumference</label>
                             <div class="col-sm-5">
-                                <input type="text" class="form-control">
+                                <input type="text" disabled class="form-control" name="chest_circumference" value="<?=$patient['birthHistory']['chest_circumference']?>">
                             </div>
                         </div> 
                         <div class="form-group row">
                             <label for="inputPassword" class="col-sm-1 col-form-label">Birth Weight</label>
                             <div class="col-sm-2">
-                                <input type="text" class="form-control">
+                                <input type="text" disabled class="form-control" name="birth_weight" value="<?=$patient['birthHistory']['birth_weight']?>">
                             </div>
                             <label for="inputPassword" class="col-sm-1 col-form-label">Birth Length</label>
                             <div class="col-sm-2">
-                                <input type="text" class="form-control">
+                                <input type="text" disabled class="form-control" name="birth_length" value="<?=$patient['birthHistory']['birth_length']?>">
                             </div>
                             <label for="inputPassword" class="col-sm-1 col-form-label">Blood Type</label>
                             <div class="col-sm-1">
-                                <input type="text" class="form-control">
+                                <input type="text" disabled class="form-control" name="blood_type" value="<?=$patient['birthHistory']['blood_type']?>">
                             </div>
                             <label for="inputPassword" class="col-sm-1 col-form-label">Abdominal Circumference</label>
                             <div class="col-sm-3">
-                                <input type="text" class="form-control">
+                                <input type="text" disabled class="form-control" name="abdominal_circumference" value="<?=$patient['birthHistory']['abdominal_circumference']?>">
                             </div>
                         </div> 
                         <h6 class="mb-4 mt-5" style="font-weight: 700">Immunization Record</h6>
@@ -136,137 +134,21 @@
                                 </tr>   
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td class="text-standard"><strong>BGC</strong></td>      
-                                    <td><input type="checkbox"></td>      
-                                    <td><input type="checkbox"></td>      
-                                    <td><input type="checkbox"></td>      
-                                    <td><input type="checkbox"></td>      
-                                    <td><input type="checkbox"></td>      
-                                    <td><input type="checkbox"></td>      
-                                    <td>Omaygad</td>              
-                                </tr>
-                                <tr>
-                                    <td class="text-standard"><strong>BGC</strong></td>      
-                                    <td><input type="checkbox"></td>      
-                                    <td><input type="checkbox"></td>      
-                                    <td><input type="checkbox"></td>      
-                                    <td><input type="checkbox"></td>      
-                                    <td><input type="checkbox"></td>      
-                                    <td><input type="checkbox"></td>      
-                                    <td>Omaygad</td>              
-                                </tr>
-                                <tr>
-                                    <td class="text-standard"><strong>BGC</strong></td>      
-                                    <td><input type="checkbox"></td>      
-                                    <td><input type="checkbox"></td>      
-                                    <td><input type="checkbox"></td>      
-                                    <td><input type="checkbox"></td>      
-                                    <td><input type="checkbox"></td>      
-                                    <td><input type="checkbox"></td>      
-                                    <td>Omaygad</td>              
-                                </tr>
-                                <tr>
-                                    <td class="text-standard"><strong>BGC</strong></td>      
-                                    <td><input type="checkbox"></td>      
-                                    <td><input type="checkbox"></td>      
-                                    <td><input type="checkbox"></td>      
-                                    <td><input type="checkbox"></td>      
-                                    <td><input type="checkbox"></td>      
-                                    <td><input type="checkbox"></td>      
-                                    <td>Omaygad</td>              
-                                </tr>
-                                <tr>
-                                    <td class="text-standard"><strong>BGC</strong></td>      
-                                    <td><input type="checkbox"></td>      
-                                    <td><input type="checkbox"></td>      
-                                    <td><input type="checkbox"></td>      
-                                    <td><input type="checkbox"></td>      
-                                    <td><input type="checkbox"></td>      
-                                    <td><input type="checkbox"></td>      
-                                    <td>Omaygad</td>              
-                                </tr>
-                                <tr>
-                                    <td class="text-standard"><strong>BGC</strong></td>      
-                                    <td><input type="checkbox"></td>      
-                                    <td><input type="checkbox"></td>      
-                                    <td><input type="checkbox"></td>      
-                                    <td><input type="checkbox"></td>      
-                                    <td><input type="checkbox"></td>      
-                                    <td><input type="checkbox"></td>      
-                                    <td>Omaygad</td>              
-                                </tr>
-                                <tr>
-                                    <td class="text-standard"><strong>BGC</strong></td>      
-                                    <td><input type="checkbox"></td>      
-                                    <td><input type="checkbox"></td>      
-                                    <td><input type="checkbox"></td>      
-                                    <td><input type="checkbox"></td>      
-                                    <td><input type="checkbox"></td>      
-                                    <td><input type="checkbox"></td>      
-                                    <td>Omaygad</td>              
-                                </tr>
-                                <tr>
-                                    <td class="text-standard"><strong>BGC</strong></td>      
-                                    <td><input type="checkbox"></td>      
-                                    <td><input type="checkbox"></td>      
-                                    <td><input type="checkbox"></td>      
-                                    <td><input type="checkbox"></td>      
-                                    <td><input type="checkbox"></td>      
-                                    <td><input type="checkbox"></td>      
-                                    <td>Omaygad</td>              
-                                </tr>
-                                <tr>
-                                    <td class="text-standard"><strong>BGC</strong></td>      
-                                    <td><input type="checkbox"></td>      
-                                    <td><input type="checkbox"></td>      
-                                    <td><input type="checkbox"></td>      
-                                    <td><input type="checkbox"></td>      
-                                    <td><input type="checkbox"></td>      
-                                    <td><input type="checkbox"></td>      
-                                    <td>Omaygad</td>              
-                                </tr>
-                                <tr>
-                                    <td class="text-standard"><strong>BGC</strong></td>      
-                                    <td><input type="checkbox"></td>      
-                                    <td><input type="checkbox"></td>      
-                                    <td><input type="checkbox"></td>      
-                                    <td><input type="checkbox"></td>      
-                                    <td><input type="checkbox"></td>      
-                                    <td><input type="checkbox"></td>      
-                                    <td>Omaygad</td>              
-                                </tr>
-                                <tr>
-                                    <td class="text-standard"><strong>BGC</strong></td>      
-                                    <td><input type="checkbox"></td>      
-                                    <td><input type="checkbox"></td>      
-                                    <td><input type="checkbox"></td>      
-                                    <td><input type="checkbox"></td>      
-                                    <td><input type="checkbox"></td>      
-                                    <td><input type="checkbox"></td>      
-                                    <td>Omaygad</td>              
-                                </tr>
-                                <tr>
-                                    <td class="text-standard"><strong>BGC</strong></td>      
-                                    <td><input type="checkbox"></td>      
-                                    <td><input type="checkbox"></td>      
-                                    <td><input type="checkbox"></td>      
-                                    <td><input type="checkbox"></td>      
-                                    <td><input type="checkbox"></td>      
-                                    <td><input type="checkbox"></td>      
-                                    <td>Omaygad</td>              
-                                </tr>
-                                <tr>
-                                    <td class="text-standard"><strong>BGC</strong></td>      
-                                    <td><input type="checkbox"></td>      
-                                    <td><input type="checkbox"></td>      
-                                    <td><input type="checkbox"></td>      
-                                    <td><input type="checkbox"></td>      
-                                    <td><input type="checkbox"></td>      
-                                    <td><input type="checkbox"></td>      
-                                    <td>Omaygad</td>              
-                                </tr>
-                               
+                                 <?php foreach ($vaccines as $key => $vaccine) : ?>
+                                    <?php $immune = Db::selectByColumn(DATABASE_NAME, 'tbl_immunization_record', array('patient_id' => $this->patient_id, 'vaccine_id' => $vaccine['id']));?>
+                                    <tr>
+                                        <td class="text-standard">
+                                            <strong><?=$vaccine['vaccine']?></strong>
+                                        </td>      
+                                        <td><input type="checkbox" name="1st[<?=$vaccine['id']?>]" <?= $immune[0]['1st'] == 1 ? 'checked' : '' ?>></td>      
+                                        <td><input type="checkbox" name="2nd[<?=$vaccine['id']?>]" <?= $immune[0]['2nd'] == 1 ? 'checked' : '' ?>></td>      
+                                        <td><input type="checkbox" name="3rd[<?=$vaccine['id']?>]" <?= $immune[0]['3rd'] == 1 ? 'checked' : '' ?>></td>      
+                                        <td><input type="checkbox" name="Booster_1[<?=$vaccine['id']?>]" <?= $immune[0]['Booster_1'] == 1 ? 'checked' : '' ?>></td>      
+                                        <td><input type="checkbox" name="Booster_2[<?=$vaccine['id']?>]" <?= $immune[0]['Booster_2'] == 1 ? 'checked' : '' ?>></td>      
+                                        <td><input type="checkbox" name="Booster_3[<?=$vaccine['id']?>]" <?= $immune[0]['Booster_3'] == 1 ? 'checked' : '' ?>></td>      
+                                        <td><textarea disabled class="form-control" name="reaction[<?=$vaccine['id']?>]" rows="2"><?= $immune[0]['reaction'] ?></textarea></td>              
+                                    </tr>
+                                <?php endforeach;?> 
                             </tbody>
                         </table>
                     </div>
@@ -275,3 +157,11 @@
         </div>
     </div>
 </div>
+<script>
+    $(function(){
+        $('.update-trigger').click(function(){
+            $('input').prop('disabled', false);
+            $('.btn-update').removeClass('d-none');
+        })
+    })
+</script>

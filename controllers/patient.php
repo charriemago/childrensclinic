@@ -18,7 +18,9 @@ class Patient extends Controller
 	
 	public function info($id)
 	{
+		$this->view->patient_id = $id;
 		$this->view->patient = $this->model->info($id);
+		$this->view->vaccines = Vaccine_model::all();
 		$this->view->render('views/patient/record.php');
 	}   
 

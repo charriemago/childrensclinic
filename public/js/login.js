@@ -12,4 +12,23 @@ $(function(){
     //         'color': '#495057'
     //     });
     // });
+
+    $('#loginForm').submit(function(){
+        let form = $(this).serialize();
+        $.post(`${ URL }user/login`, form)
+            .done( data => {
+                let { msg } = JSON.parse(data);
+                if(msg == 'success') {
+                    location.reload();
+                }
+            })
+            .fail ( err_data => {
+                let err = JSON.parse(err_data.responseText);
+                if(err.msg != undefined){
+                    alert('Error: ' + err.msg);
+                }
+            });
+        return false;
+    });
+
 })

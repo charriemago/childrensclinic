@@ -1,5 +1,4 @@
 <?php
-exit;
 	//  libs
 	require 'libs/Session.php';	
 	require 'libs/Server.php';

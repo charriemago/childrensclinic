@@ -41,7 +41,7 @@
 					<a class="nav-link text-standard" href="<?= URL?>followup">Follow up Visit</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link text-standard" href="#">Billing</a>
+					<a class="nav-link text-standard" href="<?= URL?>billing">Billing</a>
 				</li>
 			</ul>
 			<ul class="navbar-nav ml-auto">

@@ -1,0 +1,299 @@
+body{
+    background: #eee;
+    color: #333;
+}
+.text-color-standard{
+    color: #007b7b!important;
+}
+.bg-color-standard{
+    background: #007b7b!important;
+}
+
+/*** navbar styles ***/
+.navbar-standard{
+    background: #007b7b;
+    padding: .01rem 1rem;
+}
+.navbar-standard .dropdown-menu > .dropdown-item{
+    font-size: .9rem;
+}
+.navbar-standard-module{
+    background: #fbfbfb;
+    padding: .1rem 1rem;
+    box-shadow: 1px 10px 17px -8px rgba(0,0,0,0.001);
+    margin-bottom: 30px;
+}
+.navbar-standard-module .navbar-nav > li > a{
+    color: #797979;
+    font-weight: bold;
+    font-size: .9rem;
+    margin-right: 10px;	
+    border-bottom: 2px solid transparent;
+}
+.navbar-standard .navbar-nav > li > a:hover{
+    background: #0a6f6f;
+}
+.navbar-standard-module .navbar-nav > li > a:hover{
+    border-bottom: 2px solid #007b7b;
+    transition: .2s;
+    color: #007b7b!important;
+}
+.navbar-standard-module .navbar-nav > li > a.active{
+    border-bottom: 2px solid #007b7b;
+    color: #007b7b!important;
+}
+.navbar-standard .navbar-brand{
+    margin-right: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+@media (max-width: 1200px) {
+    .navbar-standard {
+        padding: .01rem 4rem;
+    }
+    .navbar-standard-module{
+        padding: .1rem 4rem;
+    }
+}
+@media (min-width: 992px) {
+    .navbar-standard {
+        padding: .01rem 4rem;
+    }
+    .navbar-standard-module{
+        padding: .1rem 4rem;
+    }
+}
+@media (max-width: 768px) {
+    .navbar-standard {
+        padding: .01rem 4rem;
+    }
+    .navbar-standard-module{
+        padding: .1rem 4rem;
+    }
+}			
+@media (max-width: 576px) {
+    .navbar-standard {
+        padding: .3rem 1rem;
+    }
+    .navbar-standard-module{
+        padding: .1rem 1rem;
+    }
+}	
+.navbar-standard .dropdown-item.active, .dropdown-item:active {
+    color: #fff;
+    text-decoration: none;
+    background-color: #007b7b;
+}
+
+/*** card styles ***/
+.card-standard{
+    border-radius: 0px;
+    margin-bottom: 20px;
+}
+.card-standard > .card-header{
+    padding: .55rem 1.25rem;
+    font-size: .9rem;
+    font-weight: bolder;
+    
+    /* color: #007b7b; */
+    color: #fff;
+    background: #007b7b;
+     /* border-left: 2px solid #007b7b; */
+    border-radius: 0px;
+}
+.card-standard > .card-body{
+    font-size: .9rem;
+}
+ 
+
+/*** update-box styles ***/
+.update-box{
+    border-bottom: 1px solid #e8e8e8;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+.card-standard > .card-body > .update-box:last-child{
+    border-bottom: 0px;
+    margin-bottom: 0px;
+}
+.update-box > .update-box-title{
+    font-weight: bolder;
+    font-size: 1rem;
+}
+.update-box > .update-box-title > a{
+    color: #007b7b;
+}
+.update-box > .update-box-title > .title-details{
+    font-size: .7rem;
+    color: #797979;
+}
+.update-box > .update-box-content{
+    padding-bottom: 15px;
+}
+.update-box > .update-box-content::after{
+    content: "...";
+}
+.update-box > .update-box-footer > button{
+    padding: 3px 10px;
+    font-size: .7rem;
+}
+
+/*** article-list-box ***/
+.article-list-box > .article-list-box-title{
+    font-weight: bolder;
+    font-size: 1.1rem;
+}
+.article-list-box > .article-list-box-title > a{
+    color: #007b7b;
+}
+.article-list-box > .article-list-box-title .title-details-left, .title-details-right{
+    font-size: .7rem;
+    color: #797979;
+}
+
+.article-list-box > .article-list-box-content{
+    padding-bottom: 15px;
+    padding-top: 15px;
+}
+.article-list-box > .article-list-box-content::after{
+    content: "...";
+}
+.article-list-box > .article-list-box-footer > button{
+    padding: 3px 10px;
+    font-size: .7rem;
+}
+
+
+/*** sched-box styles ***/
+.sched-box > .sched-list{
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #e8e8e8;
+}
+.sched-box > .sched-list:last-child{
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+    border-bottom: 0px;
+}
+.sched-box > .sched-list > .sched-date{
+    font-size: .7rem;
+    color: #797979; 
+    font-weight: bolder;
+}
+.sched-box > .sched-list > .sched-title > a{
+    font-size: .7rem;
+    color: #007b7b;
+    font-weight: bolder;
+}   
+.sched-box > .sched-list > .sched-title{
+    margin-top: -4px!important;
+}
+
+
+/*** top-box styles ***/
+
+.top-box > .top-list{
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #e8e8e8;
+}
+.top-box > .top-list:last-child{
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+    border-bottom: 0px;
+}
+.top-box > .top-list > .top-title > p.title > a{
+    font-size: .8rem;
+    color: #007b7b; 
+    font-weight: bolder;
+}
+.top-box > .top-list > .top-title > p.detail{
+    font-size: .7rem;
+    color: #797979; 
+    font-weight: bolder;
+    /* line-height: 1px; */
+}
+.top-box > .top-list > .top-title > p{
+    margin-bottom: .4rem;
+}
+/* .top-box > .top-list > .top-title > p.detail{
+} */
+
+/*** button standard styles ***/
+.btn-outline-standard{
+    color: #007b7b;
+    border: 1px solid #007b7b;
+    background: transparent;
+}
+.btn-outline-standard:hover{
+    color: #fff;
+    background: #007b7b;
+    transition: .2s;
+}
+
+
+/*** post form styles ***/
+.testimonial-box > .card {
+    margin-bottom: 10px;
+}
+.post-form textarea{
+   
+    font-size: .9rem;
+    border-color: #fff;
+    resize: none;
+    border-bottom: 1px solid #e8e8e8;
+    height: 60px;
+    border-radius: 0px;
+    overflow: hidden;
+}
+.post-form textarea:focus{
+    outline: none;
+    box-shadow: none;
+    border-color: #fff;
+    border-bottom: 1px solid #98cece;
+}
+.post-form > .post-form-body{
+    margin-bottom: 15px;
+}
+.post-form > .post-form-footer button{
+    padding: .25rem 1rem;
+    font-size: .8rem;
+}
+
+
+/*** media styles **/
+.media-standard > .media-body > .media-name{
+    font-weight: bolder;
+    font-size: 1rem;
+    color: #007b7b;
+}
+.media-standard > .media-body > .media-date{
+    font-size: .7rem;
+    color: #797979;
+}
+
+/*** search box ***/
+.search-box input{
+    background: transparent;
+    border-top: 1px solid transparent;
+    border-left: 1px solid transparent; 
+    border-right: 1px solid transparent;
+    border-radius: 0px;
+    padding: 15px 0px;
+    /* border-color: transparent; */
+}
+.search-box input:focus{
+    background: transparent;
+    border-top: 1px solid transparent;
+    border-left: 1px solid transparent; 
+    border-right: 1px solid transparent;
+    border-bottom: 1px solid #ced4da;
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,0);
+    /* border-color: transparent; */
+}
+.search-box .input-group > .input-group-prepend > .input-group-text{
+    border-top: 1px solid transparent;
+    border-left: 0px;
+    border-right: 1px solid transparent;
+    background: transparent;
+}

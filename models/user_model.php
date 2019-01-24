@@ -14,7 +14,7 @@ class User_model extends Model
         
         $data = DB::selectByColumn(DATABASE_NAME, $this->table , $where);
         if(!empty($data)) {
-            Session::setSession('user', $data);
+            Session::setSession('user', $data[0]);
             return [
                 'msg' => 'success'
             ];

@@ -44,9 +44,7 @@ class Patient_model extends Model
         if($patient_id > 0) {
             $parent_id = $this->insertParent($patient_id);
             if($parent_id > 0) {
-                echo $parent_id;
                 $birth_history_id = $this->insertBirthHistory($patient_id);
-                echo $birth_history_id;
                 if($birth_history_id > 0) {
                     $this->insertImmunizationRecord($patient_id);
                     echo json_encode([

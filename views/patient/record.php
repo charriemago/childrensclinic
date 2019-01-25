@@ -37,7 +37,7 @@
                             </div>
                             <label for="inputPassword" class="col-sm-1 col-form-label">Birthday</label>
                             <div class="col-sm-5">
-                                <input type="text" disabled class="form-control" value="<?=$patient['birthday']?>" name="birthday">
+                                <input type="text" disabled class="form-control" value="<?=$patient['birthday']?>" name="birthday" max="<?=date('Y-m-d')?>">
                             </div>
                         </div> 
                         <hr>

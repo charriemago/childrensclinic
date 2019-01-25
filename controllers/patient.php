@@ -39,6 +39,10 @@ class Patient extends Controller
 	{
 		$this->model->update();
 	}
+	public function delete()
+	{
+		$this->model->delete();
+	}
 
 }
 

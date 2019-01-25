@@ -11,7 +11,7 @@ class Followup_model extends Model
     }
 
     public function all() {
-        $data = DB::loadAll(DATABASE_NAME, $this->table);
+        $data = DB::selectByColumn(DATABASE_NAME, $this->table, array('active' => 'yes'));
         return $data;
     }
 

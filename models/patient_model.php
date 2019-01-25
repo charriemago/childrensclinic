@@ -12,7 +12,7 @@ class Patient_model extends Model
     }
 
     public function all() {
-        $data = DB::loadAll(DATABASE_NAME, $this->table);
+        $data = DB::selectByColumn(DATABASE_NAME, $this->table, array('active' => 'yes'));
         return $data;
     }
 
@@ -21,6 +21,11 @@ class Patient_model extends Model
         $data['parent'] = $this->parent($id);
         $data['birthHistory'] = $this->birthHistory($id);
         return $data;
+    }
+    
+    public function checkName($patient_name) {
+        $where = compact('patient_name');
+        return Db::selectByColumn(DATABASE_NAME, $this->table, $where);
     }
 
     public function parent($patient_id) {
@@ -31,8 +36,21 @@ class Patient_model extends Model
         $data = Db::selectByColumn(DATABASE_NAME, 'tbl_birth_history', array('patient_id' => $patient_id));
         return !empty($data) ? $data[0] : [];
     }
-
+    public function delete(){
+        $data['active'] = 'no';
+        $data['modified_by'] = $this->user['id'];
+        $data['date_modified'] = date('Y-m-d H:i:s');
+        Db::update(DATABASE_NAME, 'tbl_patient', $data, array('id' => $_POST['id']));
+    }
     public function insert() {
+        $check =  $this->checkName($_POST['patient_name']);
+        
+        if(!empty($check)) {
+            echo json_encode(['msg' => 'Patient has already saved on our records.']);
+            http_response_code(400);
+            exit;
+        }
+
         $data = [
             'patient_name' => $_POST['patient_name'],
             'address' => $_POST['address'],
@@ -110,6 +128,16 @@ class Patient_model extends Model
     }
 
     public function update() {
+        $check =  $this->checkName($_POST['patient_name']);
+        
+        if(!empty($check)) {
+            if($check[0]['id'] != $_POST['patient_id']) {
+                echo json_encode(['msg' => 'Patient has already saved on our records.']);
+                http_response_code(400);
+                exit;
+            }
+        }
+
         $patient = $this->info($_POST['patient_id']);
         
         if(!empty($patient)) {
@@ -176,6 +204,7 @@ class Patient_model extends Model
         $data['chest_circumference'] = $_POST['chest_circumference'];
         $data['abdominal_circumference'] = $_POST['abdominal_circumference'];
         $data['modified_by'] = $this->user['id'];
+        $data['date_modified'] = date('Y-m-d H:i:s');
 
         Db::update(DATABASE_NAME, 'tbl_birth_history', $data, $where);
     }
@@ -204,6 +233,7 @@ class Patient_model extends Model
                 $data['Booster_3'] = isset($_POST['Booster_3'][$vaccine['id']]) ? 1 : 0;
                 $data['reaction'] = $_POST['reaction'][$vaccine['id']];
                 $data['modified_by'] = $this->user['id'];
+                $data['date_modified'] = date('Y-m-d H:i:s');
                 Db::update(DATABASE_NAME, 'tbl_immunization_record', $data, $where2);
             } else {
                 $data = array(

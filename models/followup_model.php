@@ -43,7 +43,7 @@ class Followup_model extends Model
                     'weight' => $_POST['weight'][$key],
                     'height' => $_POST['height'][$key],
                     'diagnosis_physician_notes' => $_POST['diagnosis'][$key],
-                    'created_by' => $this->user[0]['id'],
+                    'created_by' => $this->user['id'],
                     'date_created' => $date_visit
                 ];
                 DB::insert(DATABASE_NAME, 'tbl_follow_up_visit', $data);

@@ -9,7 +9,7 @@ function validateForm(msg, submit) {
     $('#btn-confirmSave').unbind('click');
     $('#btn-confirmSave').bind('click', function () {
         $(this).prop('disabled', true);
-        $(this).append(' <i class="fa fa-refresh fa-spin"></i>');
+        $(this).append(' <i class="pe-7s-refresh-2 pe-va pe-lg pe-spin"></i>');
         return submit();
     });
 
@@ -20,6 +20,6 @@ function validateForm(msg, submit) {
 }
 
 function removeSpinner(button) {
-    $(button).find('.fa-spin').addClass('hidden');
+    $(button).find('.pe-7s-refresh-2').addClass('hidden');
     $(button).prop('disabled', false);
 }

@@ -22,6 +22,11 @@ class Patient_model extends Model
         $data['birthHistory'] = $this->birthHistory($id);
         return $data;
     }
+    
+    public function checkName($patient_name) {
+        $where = compact('patient_name');
+        return Db::selectByColumn(DATABASE_NAME, $this->table, $where);
+    }
 
     public function parent($patient_id) {
         return Parent_model::findByPatientId($patient_id);
@@ -33,6 +38,14 @@ class Patient_model extends Model
     }
 
     public function insert() {
+        $check =  $this->checkName($_POST['patient_name']);
+        
+        if(!empty($check)) {
+            echo json_encode(['msg' => 'Patient has already saved on our records.']);
+            http_response_code(400);
+            exit;
+        }
+
         $data = [
             'patient_name' => $_POST['patient_name'],
             'address' => $_POST['address'],
@@ -112,6 +125,16 @@ class Patient_model extends Model
     }
 
     public function update() {
+        $check =  $this->checkName($_POST['patient_name']);
+        
+        if(!empty($check)) {
+            if($check[0]['id'] != $_POST['patient_id']) {
+                echo json_encode(['msg' => 'Patient has already saved on our records.']);
+                http_response_code(400);
+                exit;
+            }
+        }
+
         $patient = $this->info($_POST['patient_id']);
         
         if(!empty($patient)) {

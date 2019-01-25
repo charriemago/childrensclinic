@@ -7,9 +7,15 @@ $(function(){
             .done( data => {
                 let {msg} = JSON.parse(data);
                 alert(msg);
+                location.href = URL+'patient';
             })
             .fail ( err_data => {
-                console.log(err_data);
+                let err = JSON.parse(err_data.responseText);
+                if(err.msg != undefined){
+                    alert('Error: ' + err.msg);
+                    $('#save_confirm_modal').modal('toggle');
+                    removeSpinner('button[type="button"]');
+                }
             });
         });
         return false;
@@ -22,9 +28,15 @@ $(function(){
                 .done( data => {
                     let {msg} = JSON.parse(data);
                     alert(msg);
+                    location.href = URL+'patient';
                 })
                 .fail ( err_data => {
-                    console.log(err_data);
+                    let err = JSON.parse(err_data.responseText);
+                    if(err.msg != undefined){
+                        alert('Error: ' + err.msg);
+                        $('#save_confirm_modal').modal('toggle');
+                        removeSpinner('button[type="button"]');
+                    }
                 });
         });
         return false;

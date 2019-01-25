@@ -34,6 +34,11 @@ class Patient extends Controller
 	{
 		$this->model->insert();
 	}
+	
+	public function update()
+	{
+		$this->model->update();
+	}
 
 }
 

@@ -10,10 +10,10 @@
                     <h5 class="float-left"> Patient Information <a href="#" class="update-trigger"><i class="ti-pencil"></i></a></h5>
                 </div>
                 <div class="float-right">
-                    <button class="btn btn-standard-success btn-sm btn-update d-none"><i class="ti-pencil"></i> <span>Update</span></button>
+                    <button class="btn btn-standard-success btn-sm btn-update d-none" form = "updatePatientForm"><i class="ti-pencil"></i> <span>Update</span></button>
                 </div>
             </div><hr>
-            <form class="form-standard">
+            <form class="form-standard" id="updatePatientForm">
                 <div class="card card-standard">
                     <div class="card-body">
                         <h6 class="mb-4" style="font-weight: 700">Patient Record</h6>
@@ -21,6 +21,7 @@
                             <label class="col-sm-2 col-form-label">Patient Name</label>
                             <div class="col-sm-10">
                                 <input type="text" disabled class="form-control" name="patient_name" value="<?=$patient['patient_name']?>">
+                                <input type="hidden" disabled class="form-control" name="patient_id" value="<?=$patient['id']?>">
                             </div>
                         </div>
                         <div class="form-group row">
@@ -43,81 +44,81 @@
                         <div class="form-group row">
                             <label for="inputPassword" class="col-sm-2 col-form-label">Father's Name</label>
                             <div class="col-sm-4">
-                                <input type="text" disabled class="form-control" name="father_name" value="<?=$patient['parent']['father_name']?>">
+                                <input type="text" disabled class="form-control" name="father_name" value="<?= !empty($patient['parent']) ? $patient['parent']['father_name'] : '' ?>">
                             </div>
                             <label for="inputPassword" class="col-sm-1 col-form-label">Occupation</label>
                             <div class="col-sm-2">
-                                <input type="text" disabled class="form-control" name="father_occupation" value="<?=$patient['parent']['father_occupation']?>">
+                                <input type="text" disabled class="form-control" name="father_occupation" value="<?= !empty($patient['parent']) ? $patient['parent']['father_occupation'] : '' ?>">
                             </div>
                             <label for="inputPassword" class="col-sm-1 col-form-label">Contact No.</label>
                             <div class="col-sm-2">
-                                <input type="text" disabled class="form-control" name="father_telephone" value="<?=$patient['parent']['father_telephone']?>">
+                                <input type="text" disabled class="form-control" name="father_telephone" value="<?= !empty($patient['parent']) ? $patient['parent']['father_telephone'] : '' ?>">
                             </div>
                         </div> 
                         <div class="form-group row">
                             <label for="inputPassword" class="col-sm-2 col-form-label">Mother's Name</label>
                             <div class="col-sm-4">
-                                <input type="text" disabled class="form-control" name="mother_name" value="<?=$patient['parent']['mother_name']?>">
+                                <input type="text" disabled class="form-control" name="mother_name" value="<?= !empty($patient['parent']) ? $patient['parent']['mother_name'] : '' ?>">
                             </div>
                             <label for="inputPassword" class="col-sm-1 col-form-label">Occupation</label>
                             <div class="col-sm-2">
-                                <input type="text" disabled class="form-control" name="mother_occupation" value="<?=$patient['parent']['mother_occupation']?>">
+                                <input type="text" disabled class="form-control" name="mother_occupation" value="<?= !empty($patient['parent']) ? $patient['parent']['mother_occupation'] : '' ?>">
                             </div>
                             <label for="inputPassword" class="col-sm-1 col-form-label">Contact No.</label>
                             <div class="col-sm-2">
-                                <input type="text" disabled class="form-control" name="mother_telephone" value="<?=$patient['parent']['mother_telephone']?>">
+                                <input type="text" disabled class="form-control" name="mother_telephone" value="<?= !empty($patient['parent']) ? $patient['parent']['mother_telephone'] : '' ?>">
                             </div>
                         </div> 
                         <h6 class="mb-4 mt-5" style="font-weight: 700">Birth History</h6>
                         <div class="form-group row">
                             <label for="inputPassword" class="col-sm-1 col-form-label">Term</label>
                             <div class="col-sm-1">
-                                <input type="text" disabled class="form-control" name="term" value="<?=$patient['birthHistory']['term']?>">
+                                <input type="text" disabled class="form-control" name="term" value="<?=!empty($patient['birthHistory']) ? $patient['birthHistory']['term'] : '' ?>">
                             </div>
                             <label for="inputPassword" class="col-sm-1 col-form-label">No. Of Months</label>
                             <div class="col-sm-1">
-                                <input type="text" disabled class="form-control" name="no_of_mos" value="<?=$patient['birthHistory']['no_of_mos']?>">
+                                <input type="text" disabled class="form-control" name="no_of_mos" value="<?=!empty($patient['birthHistory']) ? $patient['birthHistory']['no_of_mos'] : '' ?>">
                             </div>
                             <label for="inputPassword" class="col-sm-1 col-form-label">Weeks</label>
                             <div class="col-sm-1">
-                                <input type="text" disabled class="form-control" name="weeks" value="<?=$patient['birthHistory']['no_of_mos']?>">
+                                <input type="text" disabled class="form-control" name="weeks" value="<?=!empty($patient['birthHistory']) ? $patient['birthHistory']['no_of_mos'] : '' ?>">
                             </div>
                             <label for="inputPassword" class="col-sm-1 col-form-label">Days</label>
                             <div class="col-sm-1">
-                                <input type="text" disabled class="form-control" name="days" value="<?=$patient['birthHistory']['days']?>">
+                                <input type="text" disabled class="form-control" name="days" value="<?=!empty($patient['birthHistory']) ? $patient['birthHistory']['days'] : '' ?>">
                             </div>
                             <label for="inputPassword" class="col-sm-1 col-form-label">Head Circumference</label>
                             <div class="col-sm-3">
-                                <input type="text" disabled class="form-control" name="head_circumference" value="<?=$patient['birthHistory']['head_circumference']?>">
+                                <input type="text" disabled class="form-control" name="head_circumference" value="<?= !empty($patient['birthHistory']) ? $patient['birthHistory']['head_circumference'] : '' ?>">
                             </div>
                         </div> 
                         <div class="form-group row">
                             <label for="inputPassword" class="col-sm-1 col-form-label">Type of Delivery</label>
                             <div class="col-sm-5">
-                                <input type="text" disabled class="form-control" name="type_of_delivery" value="<?=$patient['birthHistory']['type_of_delivery']?>">
+                                <input type="text" disabled class="form-control" name="type_of_delivery" value="<?=!empty($patient['birthHistory']) ? $patient['birthHistory']['type_of_delivery'] : '' ?>">
                             </div>
                             <label for="inputPassword" class="col-sm-1 col-form-label">Chest Circumference</label>
                             <div class="col-sm-5">
-                                <input type="text" disabled class="form-control" name="chest_circumference" value="<?=$patient['birthHistory']['chest_circumference']?>">
+                                <input type="text" disabled class="form-control" name="chest_circumference" value="<?= !empty($patient['birthHistory']) ? $patient['birthHistory']['chest_circumference'] : '' ?>">
                             </div>
                         </div> 
                         <div class="form-group row">
                             <label for="inputPassword" class="col-sm-1 col-form-label">Birth Weight</label>
                             <div class="col-sm-2">
-                                <input type="text" disabled class="form-control" name="birth_weight" value="<?=$patient['birthHistory']['birth_weight']?>">
+                                <input type="text" disabled class="form-control" name="birth_weight" value="<?=!empty($patient['birthHistory']) ? $patient['birthHistory']['birth_weight'] : '' ?>">
                             </div>
                             <label for="inputPassword" class="col-sm-1 col-form-label">Birth Length</label>
                             <div class="col-sm-2">
-                                <input type="text" disabled class="form-control" name="birth_length" value="<?=$patient['birthHistory']['birth_length']?>">
+                                <input type="text" disabled class="form-control" name="birth_length" value="<?=!empty($patient['birthHistory']) ? $patient['birthHistory']['birth_length'] : '' ?>">
                             </div>
                             <label for="inputPassword" class="col-sm-1 col-form-label">Blood Type</label>
                             <div class="col-sm-1">
-                                <input type="text" disabled class="form-control" name="blood_type" value="<?=$patient['birthHistory']['blood_type']?>">
+                                <input type="text" disabled class="form-control" name="blood_type" value="<?=!empty($patient['birthHistory']) ? $patient['birthHistory']['blood_type'] : '' ?>">
                             </div>
                             <label for="inputPassword" class="col-sm-1 col-form-label">Abdominal Circumference</label>
                             <div class="col-sm-3">
-                                <input type="text" disabled class="form-control" name="abdominal_circumference" value="<?=$patient['birthHistory']['abdominal_circumference']?>">
-                            </div>
+                                <input type="text" disabled class="form-control" name="abdominal_circumference" value="<?= !empty($patient['birthHistory']) ? $patient['birthHistory']['abdominal_circumference'] : '' ?>">
+                            </ : '' div>
                         </div> 
                         <h6 class="mb-4 mt-5" style="font-weight: 700">Immunization Record</h6>
                         <table class="table table-pad table-striped table-hover table-standard">
@@ -140,13 +141,13 @@
                                         <td class="text-standard">
                                             <strong><?=$vaccine['vaccine']?></strong>
                                         </td>      
-                                        <td><input type="checkbox" name="1st[<?=$vaccine['id']?>]" <?= $immune[0]['1st'] == 1 ? 'checked' : '' ?>></td>      
-                                        <td><input type="checkbox" name="2nd[<?=$vaccine['id']?>]" <?= $immune[0]['2nd'] == 1 ? 'checked' : '' ?>></td>      
-                                        <td><input type="checkbox" name="3rd[<?=$vaccine['id']?>]" <?= $immune[0]['3rd'] == 1 ? 'checked' : '' ?>></td>      
-                                        <td><input type="checkbox" name="Booster_1[<?=$vaccine['id']?>]" <?= $immune[0]['Booster_1'] == 1 ? 'checked' : '' ?>></td>      
-                                        <td><input type="checkbox" name="Booster_2[<?=$vaccine['id']?>]" <?= $immune[0]['Booster_2'] == 1 ? 'checked' : '' ?>></td>      
-                                        <td><input type="checkbox" name="Booster_3[<?=$vaccine['id']?>]" <?= $immune[0]['Booster_3'] == 1 ? 'checked' : '' ?>></td>      
-                                        <td><textarea disabled class="form-control" name="reaction[<?=$vaccine['id']?>]" rows="2"><?= $immune[0]['reaction'] ?></textarea></td>              
+                                        <td><input type="checkbox" name="1st[<?=$vaccine['id']?>]" <?= !empty($immune[0]) && $immune[0]['1st'] == 1 ? 'checked' : '' ?>></td>      
+                                        <td><input type="checkbox" name="2nd[<?=$vaccine['id']?>]" <?= !empty($immune[0]) && $immune[0]['2nd'] == 1 ? 'checked' : '' ?>></td>      
+                                        <td><input type="checkbox" name="3rd[<?=$vaccine['id']?>]" <?= !empty($immune[0]) && $immune[0]['3rd'] == 1 ? 'checked' : '' ?>></td>      
+                                        <td><input type="checkbox" name="Booster_1[<?=$vaccine['id']?>]" <?=!empty($immune[0]) &&  $immune[0]['Booster_1'] == 1 ? 'checked' : '' ?>></td>      
+                                        <td><input type="checkbox" name="Booster_2[<?=$vaccine['id']?>]" <?=!empty($immune[0]) &&  $immune[0]['Booster_2'] == 1 ? 'checked' : '' ?>></td>      
+                                        <td><input type="checkbox" name="Booster_3[<?=$vaccine['id']?>]" <?=!empty($immune[0]) &&  $immune[0]['Booster_3'] == 1 ? 'checked' : '' ?>></td>      
+                                        <td><textarea disabled class="form-control" name="reaction[<?=$vaccine['id']?>]" rows="2"><?= !empty($immune[0]) ? $immune[0]['reaction'] : '' ?></textarea></td>              
                                     </tr>
                                 <?php endforeach;?> 
                             </tbody>
@@ -157,11 +158,4 @@
         </div>
     </div>
 </div>
-<script>
-    $(function(){
-        $('.update-trigger').click(function(){
-            $('input').prop('disabled', false);
-            $('.btn-update').removeClass('d-none');
-        })
-    })
-</script>
+<script src="<?=URL?>public/js/patient.js"></script>

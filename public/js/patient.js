@@ -23,7 +23,7 @@ $(function(){
 
     $('#updatePatientForm').submit(function(){
         let form = $(this).serialize();
-        validateForm("Are you sure you want to add this data?" , function() {
+        validateForm("Are you sure you want to update this data?" , function() {
             $.post(URL+'patient/update', form)
                 .done( data => {
                     let {msg} = JSON.parse(data);
@@ -38,6 +38,17 @@ $(function(){
                         removeSpinner('button[type="button"]');
                     }
                 });
+        });
+        return false;
+    });
+    $('#patientListTable').on('click', '.btn-delete', function(){
+        var id = $(this).attr('data-id');
+        validateForm("Are you sure you want to delete this data?" , function() {
+            $.post(URL+'patient/delete', {'id': id})
+            .done(function(returnData){
+                alert('Patient successfully deleted.');
+                location.href = URL+'patient';
+            })
         });
         return false;
     });

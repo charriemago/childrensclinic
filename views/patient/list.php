@@ -9,7 +9,7 @@
         </div>
         <input type="text" class="form-control search-box-input" placeholder="Search">
         <div class="input-group-prepend input-group-left">
-            <button class="btn btn-standard btn-sm"><i class="pe-7s-print pe-va pe-lg"></i> <span>Export</span></button>
+            <!-- <button class="btn btn-standard btn-sm"><i class="pe-7s-print pe-va pe-lg"></i> <span>Export</span></button> -->
             <a class="btn btn-standard btn-sm" href="<?=URL?>patient/add">
                 <i class="pe-7s-plus pe-va pe-lg"></i> <span>Add Patient</span
             ></a>
@@ -30,7 +30,7 @@
             <div class="card card-standard card-pad card-table">
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-pad table-striped table-hover table-standard">
+                        <table class="table table-pad table-striped table-hover table-standard" id="patientListTable">
                             <thead>
                                 <tr>
                                     <th>Name</th>                  
@@ -48,7 +48,7 @@
                                         </td>      
                                         <td><?=$patient['address']?></td>      
                                         <td>
-                                            <a href="#"><i class="ti-trash text-danger"></i></a>
+                                            <a href="#" class="btn-delete" data-id="<?=$patient['id']?>"><i class="ti-trash text-danger"></i></a>
                                         </td>              
                                     </tr>
                                 <?php endforeach; ?>
@@ -68,3 +68,4 @@
         });
     })
 </script>
+<script src="<?=URL?>public/js/patient.js"></script>

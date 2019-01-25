@@ -20,6 +20,6 @@ function validateForm(msg, submit) {
 }
 
 function removeSpinner(button) {
-    $(button).find('.pe-7s-refresh-2').addClass('hidden');
+    $(button).find('i.pe-7s-refresh-2').addClass('d-none');
     $(button).prop('disabled', false);
 }

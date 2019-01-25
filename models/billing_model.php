@@ -9,16 +9,17 @@ class Billing_model extends Model
     
     // Display 
     public function patientList(){
-        $data = DB::loadAll(DATABASE_NAME, 'tbl_patient');
+        $data = DB::selectByColumn(DATABASE_NAME, 'tbl_patient', array('active' => 'yes'));
         return $data;
     }
     public function bills($id = 0){
-        $where = $id > 0 ? "WHERE b.id = $id" : '';
+        $where = $id > 0 ? "AND b.id = $id" : '';
         $data = '
             SELECT b.*,p.patient_name
             FROM tbl_billing b
             LEFT JOIN tbl_patient p
             ON p.id = b.patient_id
+            WHERE p.active = "yes"
             '.$where.'
         ';
         $data = DB::querySelect(DATABASE_NAME,$data);

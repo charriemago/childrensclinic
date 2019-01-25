@@ -8,7 +8,7 @@
         </div>
         <input type="text" class="form-control search-box-input" placeholder="Search">
         <div class="input-group-prepend input-group-left">
-            <button class="btn btn-standard btn-sm"><i class="pe-7s-print pe-va pe-lg"></i> <span>Export</span></button>
+            <!-- <button class="btn btn-standard btn-sm"><i class="pe-7s-print pe-va pe-lg"></i> <span>Export</span></button> -->
         </div>
     </div>
 </div>

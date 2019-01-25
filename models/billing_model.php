@@ -12,12 +12,14 @@ class Billing_model extends Model
         $data = DB::loadAll(DATABASE_NAME, 'tbl_patient');
         return $data;
     }
-    public function bills(){
+    public function bills($id = 0){
+        $where = $id > 0 ? "WHERE b.id = $id" : '';
         $data = '
             SELECT b.*,p.patient_name
             FROM tbl_billing b
             LEFT JOIN tbl_patient p
             ON p.id = b.patient_id
+            '.$where.'
         ';
         $data = DB::querySelect(DATABASE_NAME,$data);
         return $data;

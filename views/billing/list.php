@@ -8,7 +8,7 @@
         </div>
         <input type="text" class="form-control search-box-input" placeholder="Search">
         <div class="input-group-prepend input-group-left">
-            <button class="btn btn-standard btn-sm"><i class="pe-7s-print pe-va pe-lg"></i> <span>Export</span></button>
+            <!-- <button class="btn btn-standard btn-sm"><i class="pe-7s-print pe-va pe-lg"></i> <span>Export</span></button> -->
             <a class="btn btn-standard btn-sm" href="<?=URL?>billing/add">
                 <i class="pe-7s-plus pe-va pe-lg"></i> <span>Add Billing</span
             ></a>
@@ -35,6 +35,7 @@
                                     <th>Date</th>                  
                                     <th>Name</th>                                
                                     <th>Total Fee</th>                                
+                                    <th><i class="ti-settings"></i></th>                                
                                 </tr>   
                             </thead>
                             <tbody>
@@ -43,7 +44,8 @@
                                     <tr>
                                         <td><?= date('F d, Y',strtotime($each['date_created']))?></td>      
                                         <td><?= $each['patient_name']?></td> 
-                                        <td>P<?= $each['total_fee']?></td> 
+                                        <td>P<?= number_format($each['total_fee'],2)?></td> 
+                                        <td><a href="<?=URL?>billing/record/<?= $each['id']?>"><i class="ti-search"></i></td> 
                                     </tr>
                                 <?php } ?>
                             </tbody>

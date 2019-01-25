@@ -21,6 +21,14 @@ class Billing extends Controller
 		$this->view->patientList = $this->model->patientList();
 		$this->view->render('views/billing/add.php');
 	}
+	public function record($id)
+	{
+		$this->view->vaccines = Vaccine_model::all();
+		// $this->view->billId = $id;
+		$this->view->bills = $this->model->bills($id);
+		$this->view->patientList = $this->model->patientList();
+		$this->view->render('views/billing/record.php');
+	}
 	public function saveBill(){
 		$this->model->saveBill();
 	}

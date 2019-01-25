@@ -35,6 +35,7 @@
                                     <th>Date</th>                  
                                     <th>Name</th>                                
                                     <th>Total Fee</th>                                
+                                    <th><i class="ti-settings"></i></th>                                
                                 </tr>   
                             </thead>
                             <tbody>
@@ -43,7 +44,8 @@
                                     <tr>
                                         <td><?= date('F d, Y',strtotime($each['date_created']))?></td>      
                                         <td><?= $each['patient_name']?></td> 
-                                        <td>P<?= $each['total_fee']?></td> 
+                                        <td>P<?= number_format($each['total_fee'],2)?></td> 
+                                        <td><a href="<?=URL?>billing/record/<?= $each['id']?>"><i class="ti-search"></i></td> 
                                     </tr>
                                 <?php } ?>
                             </tbody>

@@ -29,6 +29,7 @@ function addVisits() {
             .done(function(result) {
                 if(result === '1') {
                     alert('Follow up Successfully Saved.');
+                    location.reload();
                 } else if(result === '0') {
                     alert('Follow up already exist!');
                     $('#save_confirm_modal').modal('toggle');

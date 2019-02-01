@@ -47,6 +47,12 @@
 				<li class="nav-item">
 					<a class="nav-link text-standard" href="<?= URL?>billing">Billing</a>
 				</li>
+				<li class="nav-item">
+					<a class="nav-link text-standard d-none" href="<?= URL?>sms">SMS</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link text-standard" href="<?= URL?>reports">Reports</a>
+				</li>
 			</ul>
 			<ul class="navbar-nav ml-auto">
 				<li class="nav-item">

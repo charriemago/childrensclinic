@@ -55,6 +55,8 @@ class Patient_model extends Model
             'patient_name' => $_POST['patient_name'],
             'address' => $_POST['address'],
             'gender' => $_POST['gender'],
+            'guardian_name' => $_POST['guardian_name'],
+            'contact_no' => $_POST['contact_no'],
             'birthday' => $_POST['birthday'],
             'created_by' => $this->user['id']
         ];
@@ -157,6 +159,8 @@ class Patient_model extends Model
             $data['patient_name'] = $_POST['patient_name'];
             $data['address'] = $_POST['address'];
             $data['gender'] = $_POST['gender'];
+            $data['guardian_name'] = $_POST['guardian_name'];
+            $data['contact_no'] = $_POST['contact_no'];
             $data['birthday'] = $_POST['birthday'];
             $data['modified_by'] = $this->user['id'];
             Db::update(DATABASE_NAME, $this->table, $data, $where);

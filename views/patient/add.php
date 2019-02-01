@@ -69,6 +69,17 @@
                             <div class="col-sm-2">
                                 <input required type="text" class="form-control" name="mother_telephone">
                             </div>
+                        </div> <hr>
+                        <label>In case of emergency</label>
+                        <div class="form-group row">
+                            <label for="inputPassword" class="col-sm-2 col-form-label">Guardian's Name</label>
+                            <div class="col-sm-5">
+                                <input required type="text" class="form-control" name="guardian_name">
+                            </div>
+                            <label for="inputPassword" class="col-sm-1 col-form-label">Contact No.</label>
+                            <div class="col-sm-4">
+                                <input required type="text" class="form-control" name="contact_no">
+                            </div>
                         </div> 
                         <h6 class="mb-4 mt-5" style="font-weight: 700">Birth History</h6>
                         <div class="form-group row">
@@ -122,36 +133,38 @@
                             </div>
                         </div> 
                         <h6 class="mb-4 mt-5" style="font-weight: 700">Immunization Record</h6>
-                        <table class="table table-pad table-striped table-hover table-standard">
-                            <thead>
-                                <tr>
-                                    <th><strong>Vaccine</strong></th>                  
-                                    <th>1st</th>                   
-                                    <th>2nd</th>                   
-                                    <th>3rd</th>                   
-                                    <th>Booster 1</th>                   
-                                    <th>Booster 2</th>                   
-                                    <th>Booster 3</th>                   
-                                    <th>Reaction</th>                                                   
-                                </tr>   
-                            </thead>
-                            <tbody>
-                                <?php foreach ($vaccines as $key => $vaccine) : ?>
+                        <div class="table-responsive">
+                            <table class="table table-pad table-striped table-hover table-standard">
+                                <thead>
                                     <tr>
-                                        <td class="text-standard">
-                                            <strong><?=$vaccine['vaccine']?></strong>
-                                        </td>      
-                                        <td><input type="checkbox" name="1st[<?=$vaccine['id']?>]"></td>      
-                                        <td><input type="checkbox" name="2nd[<?=$vaccine['id']?>]"></td>      
-                                        <td><input type="checkbox" name="3rd[<?=$vaccine['id']?>]"></td>      
-                                        <td><input type="checkbox" name="Booster_1[<?=$vaccine['id']?>]"></td>      
-                                        <td><input type="checkbox" name="Booster_2[<?=$vaccine['id']?>]"></td>      
-                                        <td><input type="checkbox" name="Booster_3[<?=$vaccine['id']?>]"></td>      
-                                        <td><textarea class="form-control" name="reaction[<?=$vaccine['id']?>]" rows="2"></textarea></td>              
-                                    </tr>
-                                <?php endforeach;?> 
-                            </tbody>
-                        </table>
+                                        <th><strong>Vaccine</strong></th>                  
+                                        <th>1st</th>                   
+                                        <th>2nd</th>                   
+                                        <th>3rd</th>                   
+                                        <th>Booster 1</th>                   
+                                        <th>Booster 2</th>                   
+                                        <th>Booster 3</th>                   
+                                        <th>Reaction</th>                                                   
+                                    </tr>   
+                                </thead>
+                                <tbody>
+                                    <?php foreach ($vaccines as $key => $vaccine) : ?>
+                                        <tr>
+                                            <td class="text-standard">
+                                                <strong><?=$vaccine['vaccine']?></strong>
+                                            </td>      
+                                            <td><input type="checkbox" name="1st[<?=$vaccine['id']?>]"></td>      
+                                            <td><input type="checkbox" name="2nd[<?=$vaccine['id']?>]"></td>      
+                                            <td><input type="checkbox" name="3rd[<?=$vaccine['id']?>]"></td>      
+                                            <td><input type="checkbox" name="Booster_1[<?=$vaccine['id']?>]"></td>      
+                                            <td><input type="checkbox" name="Booster_2[<?=$vaccine['id']?>]"></td>      
+                                            <td><input type="checkbox" name="Booster_3[<?=$vaccine['id']?>]"></td>      
+                                            <td><textarea class="form-control" name="reaction[<?=$vaccine['id']?>]" rows="2"></textarea></td>              
+                                        </tr>
+                                    <?php endforeach;?> 
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
              </form>

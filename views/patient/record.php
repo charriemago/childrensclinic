@@ -68,6 +68,17 @@
                             <div class="col-sm-2">
                                 <input type="text" disabled class="form-control" name="mother_telephone" value="<?= !empty($patient['parent']) ? $patient['parent']['mother_telephone'] : '' ?>">
                             </div>
+                        </div> <hr>
+                        <label>In case of emergency</label>
+                        <div class="form-group row">
+                            <label for="inputPassword" class="col-sm-2 col-form-label">Guardian's Name</label>
+                            <div class="col-sm-5">
+                                <input required disabled type="text" class="form-control" name="guardian_name" value="<?= !empty($patient) ? $patient['guardian_name'] : '' ?>">
+                            </div>
+                            <label for="inputPassword" class="col-sm-1 col-form-label">Contact No.</label>
+                            <div class="col-sm-4">
+                                <input required disabled type="text" class="form-control" name="contact_no" value="<?= !empty($patient) ? $patient['contact_no'] : '' ?>">
+                            </div>
                         </div> 
                         <h6 class="mb-4 mt-5" style="font-weight: 700">Birth History</h6>
                         <div class="form-group row">
@@ -121,37 +132,39 @@
                             </ : '' div>
                         </div> 
                         <h6 class="mb-4 mt-5" style="font-weight: 700">Immunization Record</h6>
-                        <table class="table table-pad table-striped table-hover table-standard">
-                            <thead>
-                                <tr>
-                                    <th><strong>Vaccine</strong></th>                  
-                                    <th>1st</th>                   
-                                    <th>2nd</th>                   
-                                    <th>3rd</th>                   
-                                    <th>Booster 1</th>                   
-                                    <th>Booster 2</th>                   
-                                    <th>Booster 3</th>                   
-                                    <th>Reaction</th>                                                   
-                                </tr>   
-                            </thead>
-                            <tbody>
-                                 <?php foreach ($vaccines as $key => $vaccine) : ?>
-                                    <?php $immune = Db::selectByColumn(DATABASE_NAME, 'tbl_immunization_record', array('patient_id' => $this->patient_id, 'vaccine_id' => $vaccine['id']));?>
+                        <div class="table-responsive">
+                            <table class="table table-pad table-striped table-hover table-standard">
+                                <thead>
                                     <tr>
-                                        <td class="text-standard">
-                                            <strong><?=$vaccine['vaccine']?></strong>
-                                        </td>      
-                                        <td><input type="checkbox" name="1st[<?=$vaccine['id']?>]" <?= !empty($immune[0]) && $immune[0]['1st'] == 1 ? 'checked' : '' ?>></td>      
-                                        <td><input type="checkbox" name="2nd[<?=$vaccine['id']?>]" <?= !empty($immune[0]) && $immune[0]['2nd'] == 1 ? 'checked' : '' ?>></td>      
-                                        <td><input type="checkbox" name="3rd[<?=$vaccine['id']?>]" <?= !empty($immune[0]) && $immune[0]['3rd'] == 1 ? 'checked' : '' ?>></td>      
-                                        <td><input type="checkbox" name="Booster_1[<?=$vaccine['id']?>]" <?=!empty($immune[0]) &&  $immune[0]['Booster_1'] == 1 ? 'checked' : '' ?>></td>      
-                                        <td><input type="checkbox" name="Booster_2[<?=$vaccine['id']?>]" <?=!empty($immune[0]) &&  $immune[0]['Booster_2'] == 1 ? 'checked' : '' ?>></td>      
-                                        <td><input type="checkbox" name="Booster_3[<?=$vaccine['id']?>]" <?=!empty($immune[0]) &&  $immune[0]['Booster_3'] == 1 ? 'checked' : '' ?>></td>      
-                                        <td><textarea disabled class="form-control" name="reaction[<?=$vaccine['id']?>]" rows="2"><?= !empty($immune[0]) ? $immune[0]['reaction'] : '' ?></textarea></td>              
-                                    </tr>
-                                <?php endforeach;?> 
-                            </tbody>
-                        </table>
+                                        <th><strong>Vaccine</strong></th>                  
+                                        <th>1st</th>                   
+                                        <th>2nd</th>                   
+                                        <th>3rd</th>                   
+                                        <th>Booster 1</th>                   
+                                        <th>Booster 2</th>                   
+                                        <th>Booster 3</th>                   
+                                        <th>Reaction</th>                                                   
+                                    </tr>   
+                                </thead>
+                                <tbody>
+                                    <?php foreach ($vaccines as $key => $vaccine) : ?>
+                                        <?php $immune = Db::selectByColumn(DATABASE_NAME, 'tbl_immunization_record', array('patient_id' => $this->patient_id, 'vaccine_id' => $vaccine['id']));?>
+                                        <tr>
+                                            <td class="text-standard">
+                                                <strong><?=$vaccine['vaccine']?></strong>
+                                            </td>      
+                                            <td><input type="checkbox" name="1st[<?=$vaccine['id']?>]" <?= !empty($immune[0]) && $immune[0]['1st'] == 1 ? 'checked' : '' ?>></td>      
+                                            <td><input type="checkbox" name="2nd[<?=$vaccine['id']?>]" <?= !empty($immune[0]) && $immune[0]['2nd'] == 1 ? 'checked' : '' ?>></td>      
+                                            <td><input type="checkbox" name="3rd[<?=$vaccine['id']?>]" <?= !empty($immune[0]) && $immune[0]['3rd'] == 1 ? 'checked' : '' ?>></td>      
+                                            <td><input type="checkbox" name="Booster_1[<?=$vaccine['id']?>]" <?=!empty($immune[0]) &&  $immune[0]['Booster_1'] == 1 ? 'checked' : '' ?>></td>      
+                                            <td><input type="checkbox" name="Booster_2[<?=$vaccine['id']?>]" <?=!empty($immune[0]) &&  $immune[0]['Booster_2'] == 1 ? 'checked' : '' ?>></td>      
+                                            <td><input type="checkbox" name="Booster_3[<?=$vaccine['id']?>]" <?=!empty($immune[0]) &&  $immune[0]['Booster_3'] == 1 ? 'checked' : '' ?>></td>      
+                                            <td><textarea disabled class="form-control" name="reaction[<?=$vaccine['id']?>]" rows="2"><?= !empty($immune[0]) ? $immune[0]['reaction'] : '' ?></textarea></td>              
+                                        </tr>
+                                    <?php endforeach;?> 
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
              </form>

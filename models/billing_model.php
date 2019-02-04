@@ -13,7 +13,7 @@ class Billing_model extends Model
         return $data;
     }
     public function bills($id = 0){
-        $where = $id > 0 ? "AND b.id = $id" : '';
+        $where = $id > 0 ? "AND b.id = $id" : 'ORDER BY b.date_created DESC';
         $data = '
             SELECT b.*,p.patient_name
             FROM tbl_billing b
@@ -32,9 +32,11 @@ class Billing_model extends Model
         foreach($_POST['vaccine'] as $key => $each){
             $tot += $_POST['bill'][$key];
         }
+        $billMax = Db::querySelect(DATABASE_NAME, 'SELECT MAX(id) max FROM tbl_billing');
         $data = array(
             'patient_id' => $_POST['patient'],
-            'doctors_fee' => $_POST['doc_fee'],
+            'bill_number' => 'BILL-'.($billMax[0]['max']+1),
+            'doctors_fee' => isset($_POST['doc_fee']) && !empty($_POST['doc_fee']) ? $_POST['doc_fee'] : 0,
             'total_fee' => $tot,
             'created_by' => $this->user['id']
         );
@@ -44,7 +46,7 @@ class Billing_model extends Model
             $datas = array(
                 'billing_id' => $bill_id,
                 'vaccine_id' => $each,
-                'bill' => $_POST['bill'][$key],
+                'bill' => isset($_POST['bill'][$key]) && !empty($_POST['bill'][$key]) ? $_POST['bill'][$key] : 0,
                 'created_by' => $this->user['id']
             );
             Db::insert(DATABASE_NAME, 'tbl_billing_vaccine', $datas);

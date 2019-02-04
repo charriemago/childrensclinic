@@ -46,7 +46,7 @@
                                         </td>
                                         <input type="hidden" class="form-control" name="vaccine[]" value="<?=$vaccine['id']?>">    
                                         <?php $vaccineBill = Db::selectByColumn(DATABASE_NAME, 'tbl_billing_vaccine', array('billing_id' => $bill[0]['id'], 'vaccine_id' => $vaccine['id']))?>  
-                                        <td><input disabled type="text" class="form-control" name="bill[]" value="<?= number_format($vaccineBill[0]['bill'], 2)?>"></td>
+                                        <td><input disabled type="text" class="form-control" name="bill[]" value="<?= !empty($vaccineBill[0]['bill']) ? number_format($vaccineBill[0]['bill'], 2) : 0.00?>"></td>
                                     </tr>
                                 <?php endforeach;?> 
                             </tbody>
@@ -56,13 +56,13 @@
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label">Doctor's Fee</label>
                             <div class="col-sm-10">
-                                <input disabled class="form-control" type="text" name="doc_fee" value="<?= number_format($bill[0]['doctors_fee'],2) ?>">
+                                <input disabled class="form-control" type="text" name="doc_fee" value="<?= !empty($bill[0]['doctors_fee']) ? number_format($bill[0]['doctors_fee'],2) : 0.00?>">
                             </div>
                         </div>
                         <hr>
                         <div class="text-right mt-2 mb-2">
                             <span style="font-weight: bolder; font-size: 20px;">Total Fees:</span> 
-                            <span class="total_fee" style="font-size: 20px;">P <?= number_format($bill[0]['total_fee'],2) ?></span>
+                            <span class="total_fee" style="font-size: 20px;">P <?= !empty($bill[0]['total_fee']) ? number_format($bill[0]['total_fee'],2) : 0.00?></span>
                         </div>
                     </div>
                 </div>

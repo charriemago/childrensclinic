@@ -42,7 +42,7 @@
                                 <?php foreach($bills as $each){
                                 ?>
                                     <tr>
-                                        <td><?= date('F d, Y',strtotime($each['date_created']))?></td>      
+                                        <td><?= date('F d, Y H:i A',strtotime($each['date_created']))?></td>      
                                         <td><?= $each['patient_name']?></td> 
                                         <td>P<?= number_format($each['total_fee'],2)?></td> 
                                         <td><a href="<?=URL?>billing/record/<?= $each['id']?>" class="text-info"><i class="ti-search"></i></td> 
@@ -58,7 +58,7 @@
 </div>
 <script>
     $(function(){
-        var table = $('table').DataTable();
+        var table = $('table').DataTable({ "ordering": false});
         $('.search-box-input').on( 'keyup', function () {
             table.search( this.value ).draw();
         });

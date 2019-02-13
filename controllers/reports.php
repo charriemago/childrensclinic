@@ -11,4 +11,7 @@ class Reports extends Controller
         $this->view->report = $this->model->report();
         $this->view->render('views/reports/index.php');
     }
+    function report(){
+        $this->model->report2();
+    }
 }

@@ -57,4 +57,7 @@ $(function(){
         $('input, textarea').prop('disabled', false);
         $('.btn-update').removeClass('d-none');
     })
+    $('.btn-add').click(function(){
+        $('#addVaccineModal').modal('toggle');
+    })
 })

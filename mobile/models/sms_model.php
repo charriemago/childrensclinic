@@ -9,7 +9,11 @@ class Sms_model extends Model
 		parent::__construct();
     }
     public function addMessage(){
-        $this->sms($_POST['patient'], $_POST['message'], 'TR-CHARR371051_ZECG6');
+        foreach($_POST['patient'] as $each){
+            if($each != ''){
+                $this->sms($each, $_POST['message'], 'TR-CHARR371051_ZECG6');
+            }
+        }
     }
     public function sms($number,$message,$apicode){
         $ch = curl_init();

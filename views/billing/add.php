@@ -34,18 +34,44 @@
                         <table class="table table-pad table-striped table-hover table-standard">
                             <thead>
                                 <tr>
-                                    <th><strong>Vaccine</strong></th>                  
-                                    <th>Bill</th>                                               
+                                    <th rowspan="2" style="vertical-align: middle;"><strong>Vaccine</strong></th>                  
+                                    <th colspan="6">Bill</th>                                               
+                                </tr>   
+                                <tr>                  
+                                    <th>1st</th>                                               
+                                    <th>2nd</th>                                               
+                                    <th>3rd</th>                                               
+                                    <th>Booster 1</th>                                               
+                                    <th>Booster 2</th>                                               
+                                    <th>Booster 3</th>                                               
                                 </tr>   
                             </thead>
                             <tbody>
-                                <?php foreach ($vaccines as $key => $vaccine) : ?>
-                                    <tr>
+                                <?php foreach ($vaccines as $key => $vaccine):?>
+                                <?php $vaccineBill = Db::selectByColumn(DATABASE_NAME, 'tbl_vaccine_bill', array('vaccine_id' => $vaccine['id'])); ?>
+                                    <tr> 
                                         <td class="text-standard">
                                             <strong><?=$vaccine['vaccine']?></strong>
+                                            <input type="hidden" class="form-control" name="vaccine[]" value="<?=$vaccine['id']?>">      
                                         </td>
-                                        <input type="hidden" class="form-control" name="vaccine[]" value="<?=$vaccine['id']?>">      
-                                        <td><input type="number" class="form-control" name="bill[]"></td>
+                                        <td>
+                                            <input type="radio" name="bill_<?=$vaccine['id']?>" value="<?=$vaccineBill[0]['1st']?>">   
+                                        </td>
+                                        <td>
+                                            <input type="radio" name="bill_<?=$vaccine['id']?>" value="<?=$vaccineBill[0]['2nd']?>">   
+                                        </td>
+                                        <td>
+                                            <input type="radio" name="bill_<?=$vaccine['id']?>" value="<?=$vaccineBill[0]['3rd']?>">   
+                                        </td>
+                                        <td>
+                                            <input type="radio" name="bill_<?=$vaccine['id']?>" value="<?=$vaccineBill[0]['booster_1']?>">   
+                                        </td>
+                                        <td>
+                                            <input type="radio" name="bill_<?=$vaccine['id']?>" value="<?=$vaccineBill[0]['booster_2']?>">   
+                                        </td>
+                                        <td>
+                                            <input type="radio" name="bill_<?=$vaccine['id']?>" value="<?=$vaccineBill[0]['booster_3']?>">   
+                                        </td>
                                     </tr>
                                 <?php endforeach;?> 
                             </tbody>

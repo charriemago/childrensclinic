@@ -22,4 +22,15 @@ class Reports_model extends Model
                 GROUP BY p.id";
         return Db::querySelect(DATABASE_NAME, $sql);
     }
+    function report2(){
+        $sql = "SELECT *
+                FROM 
+                    tbl_follow_up_visit fup
+                LEFT JOIN
+                    tbl_patient p
+                ON
+                    p.id = fup.patient_id
+                GROUP BY p.id";
+        echo json_encode(Db::querySelect(DATABASE_NAME, $sql));
+    }
 }

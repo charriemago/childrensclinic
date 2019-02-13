@@ -30,7 +30,7 @@ class Billing_model extends Model
     public function saveBill(){
         $tot = $_POST['doc_fee'];
         foreach($_POST['vaccine'] as $key => $each){
-            $tot += $_POST['bill'][$key];
+            $tot += isset($_POST['bill_'.$each]) && !empty($_POST['bill_'.$each]) ? $_POST['bill_'.$each] : 0;
         }
         $billMax = Db::querySelect(DATABASE_NAME, 'SELECT MAX(id) max FROM tbl_billing');
         $data = array(
@@ -46,10 +46,17 @@ class Billing_model extends Model
             $datas = array(
                 'billing_id' => $bill_id,
                 'vaccine_id' => $each,
-                'bill' => isset($_POST['bill'][$key]) && !empty($_POST['bill'][$key]) ? $_POST['bill'][$key] : 0,
+                'bill' => isset($_POST['bill_'.$each]) && !empty($_POST['bill_'.$each]) ? $_POST['bill_'.$each] : 0,
                 'created_by' => $this->user['id']
             );
             Db::insert(DATABASE_NAME, 'tbl_billing_vaccine', $datas);
+            // $datas = array(
+            //     'billing_id' => $bill_id,
+            //     'vaccine_id' => $each,
+            //     'bill' => isset($_POST['bill'][$key]) && !empty($_POST['bill'][$key]) ? $_POST['bill'][$key] : 0,
+            //     'created_by' => $this->user['id']
+            // );
+            // Db::insert(DATABASE_NAME, 'tbl_billing_vaccine', $datas);
         }
     }
 }

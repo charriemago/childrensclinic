@@ -14,24 +14,29 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12">
-            <div class="box-title clearfix">
-                <div class="float-left">
+            <div class="box-title row">
+                <div class="col-lg-3">
                     <h5 class="mb-3 float-left"> Reports</h5>
                 </div>
-                <div class="float-right">
+                <div class="col-lg-9">
                     <form class="form-standard" method="get">
                         <div class="form-group row">
-                            <label for="inputPassword" class="col-sm-1 col-form-label">From</label>
+                            <label for="inputPassword" class="col-sm-1 col-form-label">From:</label>
                             <div class="col-sm-3">
                                 <input required type="date" class="form-control" name="from" value="<?= isset($_GET['from']) ? $_GET['from'] : date('Y-m-d')?>" style="font-size: 9px;">
                             </div>
-                            <label for="inputPassword" class="col-sm-1 col-form-label">To</label>
+                            <label for="inputPassword" class="col-sm-1 col-form-label">To:</label>
                             <div class="col-sm-3">
                                 <input required type="date" class="form-control" name="to" value="<?= isset($_GET['to']) ? $_GET['to'] : date('Y-m-d')?>" style="font-size: 9px;">
                             </div>
-                            <div class="col-sm-3">
-                                <button class="btn btn-standard btn-sm btn-block">
+                            <div class="col-sm-2">
+                                <button class="btn btn-standard btn-sm btn-block" type="submit">
                                     <i class="pe-7s-refresh-2 pe-va pe-lg"></i> <span>Generate</span>
+                                </button>
+                            </div>
+                            <div class="col-sm-1">
+                                <button class="btn btn-standard btn-sm btn-block btn-all" type="button">
+                                     <span>All</span>
                                 </button>
                             </div>
                         </div> 
@@ -67,5 +72,19 @@
         $('.search-box-input').on( 'keyup', function () {
             table.search( this.value ).draw();
         });
+        $('.btn-all').click(function(){
+            $.post(URL+'reports/report')
+            .done(function(returnData){
+                var data = $.parseJSON(returnData);
+                var append = '';
+                $.each(data, function(key,a){
+                    append += '<tr>'+
+                                    '<td>'+a.patient_name+'</td>'+
+                                '</tr>';
+                                    
+                })
+                $('table').find('tbody').html(append);
+            })
+        })
     })
 </script>

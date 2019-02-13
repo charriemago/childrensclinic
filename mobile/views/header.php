@@ -7,7 +7,11 @@
 <head>
 	<title>Children's Clinic</title>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta 
+     name='viewport' 
+     content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' 
+/>
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
 	<link rel="stylesheet" href="<?=URL?>public/css/bootstrap.min.css">
 	<link rel="stylesheet" href="<?=URL?>public/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="<?= URL;?>public/pe-icon/css/pe-icon-7-stroke.css" />
@@ -15,11 +19,13 @@
 	<link rel="stylesheet" type="text/css" href="<?= URL;?>public/themify-icons/themify-icons.css" />
 	<link rel="stylesheet" type="text/css" href="<?= URL;?>public/datatables/datatables.min.css"/>
 	<link rel="stylesheet" href="<?=URL?>public/css/main.css">
+	<link rel="stylesheet" type="text/css"  href="<?=URL?>public/bootstrap-select/css/bootstrap-select.css">
 	<script src="<?=URL?>public/js/jquery.min.js"></script>
 	<script src="<?=URL?>public/js/popper.min.js"></script>
 	<script src="<?=URL?>public/js/bootstrap.min.js"></script>
 	<script src="<?=URL?>public/js/global.js"></script>
 	<script src="<?= URL;?>public/dataTables/datatables.min.js"></script>
+	<script src="<?= URL;?>public/bootstrap-select/js/bootstrap-select.js"></script>
 	<script>
 		const URL = '<?=URL?>';
 	</script>

@@ -51,6 +51,9 @@
 					<a class="nav-link text-standard d-none" href="<?= URL?>sms">SMS</a>
 				</li>
 				<li class="nav-item">
+					<a class="nav-link text-standard" href="<?= URL?>vaccine">Vaccine</a>
+				</li>
+				<li class="nav-item">
 					<a class="nav-link text-standard" href="<?= URL?>reports">Reports</a>
 				</li>
 			</ul>

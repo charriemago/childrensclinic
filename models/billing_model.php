@@ -29,6 +29,7 @@ class Billing_model extends Model
     //Insert
     public function saveBill(){
         $tot = $_POST['doc_fee'];
+        $add = $_POST['add_fee'];
         foreach($_POST['vaccine'] as $key => $each){
             $tot += isset($_POST['bill_'.$each]) && !empty($_POST['bill_'.$each]) ? $_POST['bill_'.$each] : 0;
         }
@@ -37,7 +38,7 @@ class Billing_model extends Model
             'patient_id' => $_POST['patient'],
             'bill_number' => 'BILL-'.($billMax[0]['max']+1),
             'doctors_fee' => isset($_POST['doc_fee']) && !empty($_POST['doc_fee']) ? $_POST['doc_fee'] : 0,
-            'total_fee' => $tot,
+            'total_fee' => $tot+$add,
             'created_by' => $this->user['id']
         );
         $bill_id = Db::insert(DATABASE_NAME, 'tbl_billing', $data);

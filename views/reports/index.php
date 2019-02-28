@@ -1,5 +1,12 @@
 <?php
     $reports = $this->report;
+    function age($date){
+        $birthDate = explode("-", $date);
+        $age = (date("md", date("U", mktime(0, 0, 0, $birthDate[2], $birthDate[1], $birthDate[0]))) > date("md")
+          ? ((date("Y") - $birthDate[0]) - 1)
+          : (date("Y") - $birthDate[0]));
+        return ($age == 0) ? $age+1 : $age;
+    }
 ?>
 <div class="search-box mb-3">
     <div class="input-group">
@@ -50,12 +57,20 @@
                             <thead>
                                 <tr>
                                     <th>Name</th>                                                  
+                                    <th>Age</th>                                                  
+                                    <th>Birthday</th>                                                  
+                                    <th>Gender</th>                                                  
+                                    <th>Address</th>                                                  
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php foreach($reports as $each){ ?>
                                     <tr>
                                         <td><?= $each['patient_name']?></td> 
+                                        <td><?= age($each['birthday'])?></td> 
+                                        <td><?= date('F d, Y', strtotime($each['birthday']))?></td> 
+                                        <td><?= $each['gender']?></td> 
+                                        <td><?= $each['address']?></td> 
                                     </tr>
                                 <?php } ?>
                             </tbody>
@@ -80,6 +95,10 @@
                 $.each(data, function(key,a){
                     append += '<tr>'+
                                     '<td>'+a.patient_name+'</td>'+
+                                    '<td>'+calculateAge(a.birthday)+'</td>'+
+                                    '<td>'+convertDate(a.birthday)+'</td>'+
+                                    '<td>'+a.gender+'</td>'+
+                                    '<td>'+a.address+'</td>'+
                                 '</tr>';
                                     
                 })
@@ -87,4 +106,20 @@
             })
         })
     })
+    function convertDate(date){
+        var date = date.split('-');
+        var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+        return months[date[1]-1]+' '+date[2]+', '+date[0];
+    }
+    function calculateAge(birthday) {
+        var date = birthday.split('-');
+        var today = new Date();
+        var birthDate = new Date(date[1]+'/'+date[2]+'/'+date[0]);
+        var age = today.getFullYear() - birthDate.getFullYear();
+        var m = today.getMonth() - birthDate.getMonth();
+        if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+            age = age - 1;
+        }
+        return (age == 0) ? age+1 : age;
+    }
 </script>

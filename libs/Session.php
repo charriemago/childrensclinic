@@ -44,7 +44,7 @@ class Session{
 		$_SESSION['time'] = $time;
 		unset($_SESSION[$key]);
 		$_SESSION[$key] = $value;
-		ini_set('session.gc_maxlifetime',1);
+		// ini_set('session.gc_maxlifetime',1);
 	}
 	
 	static function destroy(){

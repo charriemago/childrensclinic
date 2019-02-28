@@ -51,10 +51,18 @@
 					<a class="nav-link text-standard d-none" href="<?= URL?>sms">SMS</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link text-standard" href="<?= URL?>vaccine">Vaccine</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link text-standard" href="<?= URL?>reports">Reports</a>
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle text-standard" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					File Maintenance
+					</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<a class="dropdown-item" href="<?= URL?>vaccine">Vaccine</a>
+						<a class="dropdown-item" href="<?= URL?>fee">Doctor's Fee</a>
+					</div>
 				</li>
 			</ul>
 			<ul class="navbar-nav ml-auto">

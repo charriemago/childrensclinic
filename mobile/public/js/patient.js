@@ -7,7 +7,7 @@ $(function(){
             .done( data => {
                 let {msg} = JSON.parse(data);
                 alert(msg);
-                location.href = URL+'patient';
+                location.reload();
             })
             .fail ( err_data => {
                 let err = JSON.parse(err_data.responseText);

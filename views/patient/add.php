@@ -8,9 +8,9 @@
                 <div class="float-left">
                     <h5 class="float-left"> Add Patient</h5>
                 </div>
-                <div class="float-right">
+               <!--  <div class="float-right">
                     <button class="btn btn-standard-success btn-sm" form="addPatientForm"><i class="pe-7s-paper-plane pe-lg"></i> <span>Submit</span></button>
-                </div>
+                </div> -->
             </div><hr>
             <form class="form-standard" id="addPatientForm">
                 <div class="card card-standard">

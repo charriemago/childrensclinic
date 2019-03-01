@@ -15,6 +15,7 @@
         </div>
         <input type="text" class="form-control search-box-input" placeholder="Search">
         <div class="input-group-prepend input-group-left">
+            <button class="btn btn-standard btn-sm btn-export"><i class="pe-7s-print pe-va pe-lg"></i> <span>Export</span></button>
         </div>
     </div>
 </div>
@@ -104,6 +105,26 @@
                 })
                 $('table').find('tbody').html(append);
             })
+        })
+        $('.btn-export').click(function(){
+            let tabledata = `
+                <style>
+                    table {
+                    border-collapse: collapse;
+                    }
+
+                    table, th, td {
+                    border: 1px solid black;
+                    }
+
+                    table th {
+                        background: #0d47a1;
+                        color: white;
+                    }
+                <style>`+
+                $("table").clone().wrap('<div>').parent().html()
+            ;
+            fnExcelReport('Report', tabledata);
         })
     })
     function convertDate(date){

@@ -9,6 +9,7 @@
                     <h5 class="float-left"> SMS</h5>
                 </div>
                 <div class="float-right">
+                    <button class="btn btn-standard-success btn-sm" id="allMessage"><i class="pe-7s-paper-plane pe-lg"></i> <span>Submit to All</span></button>
                     <button class="btn btn-standard-success btn-sm" form="addMessage"><i class="pe-7s-paper-plane pe-lg"></i> <span>Submit</span></button>
                 </div>
             </div><hr>

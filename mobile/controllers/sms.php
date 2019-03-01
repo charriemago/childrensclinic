@@ -18,6 +18,9 @@ class Sms extends Controller
     function addMessage(){
         $this->model->addMessage();
     }
+    function allMessage(){
+        $this->model->allMessage();
+    }
 
 }
 	

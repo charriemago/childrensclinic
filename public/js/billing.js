@@ -40,4 +40,24 @@ $(function(){
 
 
     })
+    $('.btn-export').click(function(){
+        let tabledata = `
+			<style>
+				table {
+				  border-collapse: collapse;
+				}
+
+				table, th, td {
+				  border: 1px solid black;
+				}
+
+				table th {
+					background: #0d47a1;
+					color: white;
+				}
+			<style>`+
+			$("table").clone().wrap('<div>').parent().html()
+        ;
+        fnExcelReport('Billing_Report', tabledata);
+    })
 })

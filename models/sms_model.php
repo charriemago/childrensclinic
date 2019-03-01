@@ -1,5 +1,4 @@
 <?php
-
 class Sms_model extends Model
 {   
     private static $table = 'tbl_parent';
@@ -10,6 +9,13 @@ class Sms_model extends Model
     }
     public function addMessage(){
         $this->sms($_POST['patient'], $_POST['message'], 'TR-CHARR371051_ZECG6');
+    }
+    public function allMessage(){
+        $model = new Patient_model;
+        $patient = $model->all();
+        foreach($patient as $each){
+            $this->sms($each['contact_no'], $_POST['message'], 'TR-CHARR371051_ZECG6');
+        }
     }
     public function sms($number,$message,$apicode){
         $ch = curl_init();

@@ -15,6 +15,13 @@ class Sms_model extends Model
             }
         }
     }
+    public function allMessage(){
+        $model = new Patient_model;
+        $patient = $model->all();
+        foreach($patient as $each){
+            $this->sms($each['contact_no'], $_POST['message'], 'TR-CHARR371051_ZECG6');
+        }
+    }
     public function sms($number,$message,$apicode){
         $ch = curl_init();
         $itexmo = array('1' => $number, '2' => $message, '3' => $apicode);

@@ -1,13 +1,13 @@
 <?php
 
-	define('URL','/childrensclinic/mobile/');
+	define('URL','/mobile/');
 	
 	date_default_timezone_set('Asia/Taipei');
 	
 	ini_set('memory_limit', '-1');
 	ini_set('max_execution_time', 300);
 
-	define('DATABASE_HOST', 'dt0017');
-	define('DATABASE_USER', 'root');
-	define('DATABASE_PASS', '');
-	define('DATABASE_NAME', 'db_clinic');
+	define('DATABASE_HOST', 'localhost');
+	define('DATABASE_USER', 'id8601971_roo');
+	define('DATABASE_PASS', 'db_clinic');
+	define('DATABASE_NAME', 'id8601971_db_clinic');

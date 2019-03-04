@@ -1,0 +1,26 @@
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+    }
+
+    public void add_patient(View view) {
+        Intent addpatientIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://childrensclinicmain.000webhostapp.com/mobile/patient/add"));
+        startActivity(addpatientIntent);
+
+    }
+
+    public void follow_up(View view) {
+        Intent addpatientIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://childrensclinicmain.000webhostapp.com/mobile/followup/"));
+        startActivity(addpatientIntent);
+
+    }
+
+    public void message(View view) {
+        Intent addpatientIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://childrensclinicmain.000webhostapp.com/mobile/sms"));
+        startActivity(addpatientIntent);
+
+    }
+}

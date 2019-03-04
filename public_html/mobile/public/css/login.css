@@ -1,0 +1,95 @@
+html, body, .login-page, .flt-left-login, .flt-right-login{
+    height: 100%;
+    font-size: 14.5px;
+}
+body{
+    background: linear-gradient(135deg, #37a5c0, #1c7186);
+    background-attachment:fixed;
+    height:100%;
+}
+.mt-100{
+    margin-top: 100px;
+}
+.mb-100{
+    margin-bottom: 100px;
+}
+.mb-50{
+    margin-bottom: 50px;
+}
+.mb-80{
+    margin-bottom: 80px;
+}
+/*** login page background ***/
+.login-page > .flt-left-login{
+    width: 52%;
+    background: #007b7b;
+    float: left;
+    padding: 100px 20px;
+    font-weight: 100;
+}
+.login-page > .flt-left-login > .list-details{
+    display: block; margin-left: auto; width: 230px;
+}
+.login-page > .flt-right-login{
+    padding: 150px 40px;
+    width: 48%;
+    background: #eee;
+    float: right;
+    font-weight: 100;
+}
+
+/*** form standard ***/
+.form-standard .btn-forgot-pass{
+    color: #fff;
+    font-size: .9rem;
+    margin-left: 15px;
+}
+.form-standard .btn-forgot-pass:hover{
+    color: #007b7b;
+    transition: .2s;
+}
+.form-standard .btn-login{
+    border-radius: 25px;
+    padding: 10px 0px;
+    font-size: .9rem;
+    font-weight: 300;
+    border-color: rgba(255,255,255,.6);
+}
+.form-standard .form-control-standard{
+    border-radius: 0;
+    background: transparent;
+    border-top: 1px solid transparent;
+    border-left: 1px solid transparent;
+    border-bottom: 1px solid rgba(255,255,255,.4);
+    border-right: 0px;
+    padding: 10px 5px;
+    color: #fff;
+}
+.form-standard .form-control-standard::placeholder{
+    color: rgba(255,255,255,.7);
+    opacity: 1;
+}
+.form-standard .form-control-standard:focus{
+    /* border-bottom: 1px solid rgba(0,123,123,.6); */
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,0);
+}
+.form-standard .input-group > .input-group-prepend > .input-group-text{
+    border-top: 1px solid transparent;
+    border-left: 0px;
+    border-right: 1px solid transparent;
+    border-bottom: 1px solid rgba(255,255,255,.4);
+    background: transparent;
+    color: #fff;
+}
+.form-standard .forgot-pass{
+    margin-top: 12px;
+    font-size: .9rem;
+    font-weight: 300;
+    color: rgba(255,255,255,.6);
+}
+/* .form-standard .input-group:hover{
+    border-top: 1px solid transparent;
+    border-left: 1px solid transparent; 
+    border-right: 1px solid transparent;
+    border-bottom: 1px solid rgba(0,123,123,.6);
+} */
